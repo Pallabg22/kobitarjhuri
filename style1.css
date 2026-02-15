@@ -1,0 +1,86 @@
+body {
+    font-family: 'Noto Serif Bengali', serif;
+    margin: 0;
+    background: #f9f6f1;
+    color: #333;
+}
+
+header {
+    background: #3b2f2f;
+    color: white;
+    padding: 20px;
+    text-align: center;
+}
+
+.tagline {
+    font-style: italic;
+    font-size: 18px;
+}
+
+nav {
+    background: #5a3e36;
+    padding: 10px;
+    text-align: center;
+}
+
+nav a {
+    color: white;
+    margin: 0 12px;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+nav a:hover {
+    text-decoration: underline;
+}
+
+section {
+    padding: 20px;
+    max-width: 900px;
+    margin: auto;
+}
+
+h2 {
+    border-bottom: 2px solid #ccc;
+    padding-bottom: 5px;
+}
+
+footer {
+    background: #3b2f2f;
+    color: white;
+    text-align: center;
+    padding: 10px;
+}
+.post {
+    max-width: 700px;
+    margin: auto;
+    background: #fff;
+    padding: 25px;
+    line-height: 1.9;
+    font-size: 18px;
+}
+
+.post p {
+    margin-bottom: 20px;
+}
+.post-author {
+    text-align: center;
+    font-style: italic;
+    margin-bottom: 30px;
+}
+.post {
+    max-width: 700px;
+    margin: 40px auto;
+    background: #fff;
+    padding: 25px;
+    line-height: 1.9;
+    font-size: 18px;
+}
+
+.post h1 {
+    text-align: center;
+}
+
+
+
+
