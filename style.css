@@ -98,3 +98,774 @@ footer {
 .submit-form button:hover {
     background: #4a1f1f;
 }
+/* Google Font */
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif+Bengali:wght@400;600;700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Noto Serif Bengali', serif;
+    background-color: #faf7f2;
+    color: #2f2f2f;
+    line-height: 1.8;
+}
+
+/* Header */
+header {
+    background: #3b2a26;
+    color: #ffffff;
+    text-align: center;
+    padding: 60px 20px 40px;
+}
+
+header h1 {
+    font-size: 38px;
+    letter-spacing: 2px;
+    margin-bottom: 10px;
+}
+
+header .tagline {
+    font-size: 18px;
+    color: #e0cfc7;
+}
+
+/* Navigation */
+nav {
+    background: #5a3d35;
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    padding: 14px 10px;
+}
+
+nav a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 17px;
+    position: relative;
+}
+
+nav a::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -6px;
+    width: 0;
+    height: 2px;
+    background: #f1c27d;
+    transition: 0.3s;
+}
+
+nav a:hover::after {
+    width: 100%;
+}
+
+/* Main Section */
+section {
+    max-width: 900px;
+    margin: 50px auto;
+    padding: 0 20px;
+}
+
+/* Headings */
+section h2 {
+    font-size: 26px;
+    margin-bottom: 20px;
+    border-bottom: 2px solid #d6c5b8;
+    padding-bottom: 8px;
+}
+
+/* Writing list */
+section p,
+section li {
+    font-size: 18px;
+    margin-bottom: 12px;
+}
+
+/* Submit Form */
+.submit-form {
+    background: #ffffff;
+    padding: 35px;
+    border-radius: 6px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+}
+
+.submit-form label {
+    display: block;
+    font-weight: 600;
+    margin: 20px 0 6px;
+}
+
+.submit-form input,
+.submit-form select,
+.submit-form textarea {
+    width: 100%;
+    padding: 12px;
+    font-size: 16px;
+    border: 1px solid #cbb9ac;
+    border-radius: 4px;
+    font-family: 'Noto Serif Bengali', serif;
+}
+
+.submit-form textarea {
+    resize: vertical;
+}
+
+/* Button */
+.submit-form button {
+    margin-top: 25px;
+    background: #3b2a26;
+    color: #fff;
+    padding: 14px 28px;
+    font-size: 18px;
+    border: none;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.submit-form button:hover {
+    background: #5a3d35;
+}
+
+/* Footer */
+footer {
+    background: #3b2a26;
+    color: #d8cfc9;
+    text-align: center;
+    padding: 25px 10px;
+    margin-top: 80px;
+    font-size: 15px;
+}
+
+.featured-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 25px;
+}
+
+.featured-card {
+    background: #fff;
+    padding: 25px;
+    border-radius: 8px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+    transition: 0.3s;
+}
+
+.featured-card:hover {
+    transform: translateY(-6px);
+}
+
+.featured-card .tag {
+    font-size: 14px;
+    color: #fff;
+    background: #5a3d35;
+    padding: 4px 12px;
+    border-radius: 20px;
+}
+
+.featured-card h3 {
+    margin: 15px 0 8px;
+}
+
+.featured-card .author {
+    color: #777;
+    font-size: 15px;
+}
+
+.featured-card a {
+    display: inline-block;
+    margin-top: 12px;
+    color: #5a3d35;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.story {
+    max-width: 720px;
+    margin: 60px auto;
+    background: #fff;
+    padding: 50px;
+    border-radius: 8px;
+    box-shadow: 0 12px 30px rgba(0,0,0,0.08);
+}
+
+.story h1 {
+    font-size: 34px;
+    margin-bottom: 10px;
+}
+
+.story .meta {
+    color: #888;
+    margin-bottom: 30px;
+}
+
+.story p {
+    font-size: 19px;
+    margin-bottom: 20px;
+}
+.story p::first-letter {
+    font-size: 40px;
+    font-weight: bold;
+    float: left;
+    margin-right: 8px;
+    color: #5a3d35;
+}
+
+body.dark {
+    background: #1e1b1a;
+    color: #e6e1dc;
+}
+
+body.dark header,
+body.dark footer,
+body.dark nav {
+    background: #12100f;
+}
+
+body.dark section,
+body.dark .featured-card,
+body.dark .story {
+    background: #262321;
+    color: #e6e1dc;
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif+Bengali:wght@400;600;700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Noto Serif Bengali', serif;
+    background: #faf7f2;
+    color: #2b2b2b;
+    line-height: 1.8;
+}
+
+/* ===== Header ===== */
+header {
+    background: #3b2a26;
+    color: #fff;
+    text-align: center;
+    padding: 50px 20px 40px;
+}
+
+header img {
+    margin: 15px 0;
+}
+
+header h1 {
+    font-size: 38px;
+    margin-bottom: 10px;
+    letter-spacing: 1px;
+}
+
+.tagline {
+    font-size: 18px;
+    color: #e7d6cc;
+}
+
+/* ===== Navigation ===== */
+nav {
+    background: #5a3d35;
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    padding: 14px 10px;
+    flex-wrap: wrap;
+}
+
+nav a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 17px;
+    position: relative;
+}
+
+nav a::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -6px;
+    width: 0;
+    height: 2px;
+    background: #f1c27d;
+    transition: 0.3s;
+}
+
+nav a:hover::after {
+    width: 100%;
+}
+
+/* ===== Sections (Common) ===== */
+section {
+    max-width: 900px;
+    margin: 50px auto;
+    padding: 30px;
+    background: #ffffff;
+    border-radius: 6px;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.06);
+}
+
+section h2 {
+    font-size: 26px;
+    margin-bottom: 15px;
+    border-bottom: 2px solid #d6c5b8;
+    padding-bottom: 8px;
+}
+
+/* ===== Notice ===== */
+.Notice {
+    background: #fff6e5;
+    border-left: 6px solid #c98c3a;
+}
+
+.Notice p {
+    font-size: 18px;
+    margin-bottom: 8px;
+}
+
+/* ===== Featured Magazines ===== */
+.featured p {
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+/* ===== Latest Writings ===== */
+.latest ul {
+    list-style: square;
+    padding-left: 20px;
+}
+
+.latest li {
+    font-size: 18px;
+    margin-bottom: 8px;
+}
+
+/* ===== Editorial ===== */
+.editorial p {
+    font-size: 19px;
+    text-align: justify;
+}
+
+/* ===== Footer ===== */
+footer {
+    background: #3b2a26;
+    color: #e0d6d0;
+    text-align: center;
+    padding: 25px 10px;
+    margin-top: 80px;
+    font-size: 15px;
+}
+
+/* ===== Dark Mode ===== */
+body.dark {
+    background: #1e1b1a;
+    color: #e6e1dc;
+}
+
+body.dark header,
+body.dark footer,
+body.dark nav {
+    background: #12100f;
+}
+
+body.dark section {
+    background: #262321;
+    color: #e6e1dc;
+}
+
+body.dark .Notice {
+    background: #2f2a24;
+    border-left-color: #f1c27d;
+}
+
+/* ===== Writing Page Specific ===== */
+
+body {
+    background: #faf7f2;
+}
+
+/* Page Header */
+header {
+    background: linear-gradient(
+        rgba(59,42,38,0.9),
+        rgba(59,42,38,0.9)
+    );
+}
+
+/* Writing Section */
+section {
+    max-width: 900px;
+    margin: 60px auto;
+    padding: 40px;
+    background: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 12px 30px rgba(0,0,0,0.07);
+}
+
+/* Category Heading */
+section h2 {
+    font-size: 28px;
+    margin: 40px 0 20px;
+    border-left: 6px solid #5a3d35;
+    padding-left: 15px;
+    color: #3b2a26;
+}
+
+/* List Reset */
+section ul {
+    list-style: none;
+    padding-left: 0;
+    margin-bottom: 30px;
+}
+
+/* Writing Item */
+section ul li {
+    background: #f8f3ee;
+    margin-bottom: 15px;
+    padding: 18px 20px;
+    border-radius: 6px;
+    font-size: 19px;
+    transition: 0.3s;
+    border-left: 5px solid transparent;
+}
+
+/* Hover Effect */
+section ul li:hover {
+    background: #f1e7df;
+    border-left-color: #c98c3a;
+    transform: translateX(5px);
+}
+
+/* Link Style */
+section ul li a {
+    text-decoration: none;
+    color: #2b2b2b;
+    display: block;
+}
+
+/* Footer */
+footer {
+    margin-top: 100px;
+}
+
+/* ===== Dark Mode Support ===== */
+body.dark section {
+    background: #262321;
+}
+
+body.dark section ul li {
+    background: #2f2a24;
+    color: #e6e1dc;
+}
+
+body.dark section ul li:hover {
+    background: #3a342d;
+}
+
+/* ===== Submit Page ===== */
+
+/* Section wrapper */
+section {
+    max-width: 900px;
+    margin: 60px auto;
+    padding: 35px;
+    background: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 12px 30px rgba(0,0,0,0.08);
+}
+
+/* Page Header look */
+header {
+    background: linear-gradient(
+        rgba(59,42,38,0.92),
+        rgba(59,42,38,0.92)
+    );
+}
+
+/* Iframe (Google Form) */
+section iframe {
+    width: 100%;
+    height: 900px;
+    border: none;
+    border-radius: 8px;
+}
+
+/* Footer spacing */
+footer {
+    margin-top: 100px;
+}
+
+/* ===== Dark Mode Support ===== */
+body.dark section {
+    background: #262321;
+}
+
+body.dark section iframe {
+    background: #262321;
+}
+
+/* ===== About Page Style ===== */
+
+/* Section wrapper */
+section {
+    max-width: 850px;
+    margin: 70px auto;
+    padding: 50px;
+    background: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 14px 35px rgba(0,0,0,0.08);
+}
+
+/* Header look */
+header {
+    background: linear-gradient(
+        rgba(59,42,38,0.95),
+        rgba(59,42,38,0.95)
+    );
+}
+
+/* Paragraph style */
+section p {
+    font-size: 20px;
+    line-height: 2;
+    margin-bottom: 25px;
+    text-align: justify;
+    color: #2b2b2b;
+}
+
+/* Decorative first letter (book style) */
+section p:first-letter {
+    font-size: 42px;
+    font-weight: bold;
+    float: left;
+    margin-right: 10px;
+    line-height: 1;
+    color: #5a3d35;
+}
+
+/* Footer spacing */
+footer {
+    margin-top: 120px;
+}
+
+/* ===== Dark Mode Support ===== */
+body.dark section {
+    background: #262321;
+}
+
+body.dark section p {
+    color: #e6e1dc;
+}
+
+body.dark section p:first-letter {
+    color: #f1c27d;
+}
+
+/* ===============================
+   HOMEPAGE MAGAZINE STYLE
+   =============================== */
+
+/* Header refinement */
+header {
+    background: linear-gradient(135deg, #3b2a26, #5a3d35);
+    color: #fff;
+    text-align: center;
+    padding: 60px 20px 45px;
+}
+
+header img {
+    margin: 15px 0;
+}
+
+header h1 {
+    font-size: 40px;
+    margin-bottom: 8px;
+    letter-spacing: 1px;
+}
+
+.tagline {
+    font-size: 18px;
+    color: #f1e3db;
+}
+
+/* Notice */
+.Notice {
+    max-width: 900px;
+    margin: 50px auto;
+    padding: 30px;
+    background: #fff6e5;
+    border-left: 8px solid #c98c3a;
+    border-radius: 8px;
+}
+
+.Notice h2 {
+    margin-bottom: 12px;
+}
+
+/* Featured magazines */
+.featured {
+    max-width: 900px;
+    margin: 60px auto;
+    padding: 40px;
+    background: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 12px 30px rgba(0,0,0,0.08);
+}
+
+.featured p {
+    font-size: 19px;
+    margin-bottom: 12px;
+    padding-left: 15px;
+    border-left: 4px solid #5a3d35;
+}
+
+/* Latest writings */
+.latest {
+    max-width: 900px;
+    margin: 60px auto;
+    padding: 40px;
+    background: #f8f3ee;
+    border-radius: 10px;
+}
+
+.latest ul {
+    list-style: none;
+    padding-left: 0;
+}
+
+.latest li {
+    background: #ffffff;
+    margin-bottom: 15px;
+    padding: 18px 20px;
+    font-size: 19px;
+    border-radius: 6px;
+    box-shadow: 0 6px 18px rgba(0,0,0,0.06);
+    transition: 0.3s;
+}
+
+.latest li:hover {
+    transform: translateX(6px);
+}
+
+/* Editorial */
+.editorial {
+    max-width: 850px;
+    margin: 80px auto;
+    padding: 50px;
+    background: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 14px 35px rgba(0,0,0,0.08);
+}
+
+.editorial p {
+    font-size: 20px;
+    line-height: 2;
+    text-align: justify;
+}
+
+.editorial p:first-letter {
+    font-size: 42px;
+    font-weight: bold;
+    float: left;
+    margin-right: 10px;
+    color: #5a3d35;
+}
+
+/* Dark mode homepage */
+body.dark header {
+    background: linear-gradient(135deg, #12100f, #1e1b1a);
+}
+
+body.dark .Notice {
+    background: #2f2a24;
+    color: #e6e1dc;
+}
+
+body.dark .featured,
+body.dark .latest,
+body.dark .editorial {
+    background: #262321;
+    color: #e6e1dc;
+}
+
+body.dark .latest li {
+    background: #2f2a24;
+}
+
+/* ===============================
+   MAGAZINE STYLE FOOTER
+   =============================== */
+
+.mag-footer {
+    background: #2b1f1b;
+    color: #e6ded9;
+    padding: 60px 20px 20px;
+    margin-top: 120px;
+}
+
+.footer-grid {
+    max-width: 1100px;
+    margin: auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 40px;
+}
+
+.mag-footer h3,
+.mag-footer h4 {
+    color: #f1c27d;
+    margin-bottom: 15px;
+}
+
+.footer-about p {
+    line-height: 1.9;
+    font-size: 16px;
+}
+
+.footer-links ul {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-links li {
+    margin-bottom: 10px;
+}
+
+.footer-links a {
+    color: #e6ded9;
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+.footer-links a:hover {
+    color: #f1c27d;
+    padding-left: 6px;
+}
+
+.footer-contact p {
+    margin-bottom: 10px;
+    font-size: 16px;
+}
+
+.footer-bottom {
+    border-top: 1px solid rgba(255,255,255,0.15);
+    margin-top: 40px;
+    padding-top: 20px;
+    text-align: center;
+    font-size: 14px;
+    color: #cfc4bd;
+}
+
+/* Dark mode footer (already matches, but safety) */
+body.dark .mag-footer {
+    background: #12100f;
+}
