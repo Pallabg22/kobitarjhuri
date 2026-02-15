@@ -110,6 +110,36 @@ style="position:fixed;bottom:20px;right:20px;">
   </div>
 
 </footer>
+<!-- NOTICE BUTTON -->
+<button class="notice-btn" onclick="openNotice()">📢 Notice</button>
+
+<!-- NOTICE POPUP -->
+<div id="noticeModal" class="notice-modal">
+  <div class="notice-content">
+    <span class="close-btn" onclick="closeNotice()">✖</span>
+
+    <img 
+      src="KOBITAR JHURI SAHITTO POTRIKA 2_page-0001.jpg"
+      alt="Official Notice"
+      class="notice-image"
+    >
+  </div>
+</div>
+
+<script>
+function openNotice() {
+  document.getElementById("noticeModal").style.display = "flex";
+}
+
+function closeNotice() {
+  document.getElementById("noticeModal").style.display = "none";
+}
+
+/* Auto popup on first load */
+window.onload = function () {
+  setTimeout(openNotice, 10);
+};
+</script>
 
 </body>
 </html>

@@ -869,3 +869,196 @@ body.dark .latest li {
 body.dark .mag-footer {
     background: #12100f;
 }
+
+/* ===============================
+   NOTICE POPUP STYLE
+   =============================== */
+
+.notice-btn {
+    position: fixed;
+    bottom: 80px;
+    right: 20px;
+    background: #7b2d26;
+    color: #fff;
+    border: none;
+    padding: 12px 16px;
+    border-radius: 30px;
+    cursor: pointer;
+    font-size: 15px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+    z-index: 999;
+}
+
+.notice-btn:hover {
+    background: #9c3b32;
+}
+
+.notice-modal {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.85);
+    z-index: 1000;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+.notice-content {
+    position: relative;
+    background: #fff;
+    padding: 15px;
+    max-width: 900px;
+    width: 100%;
+    border-radius: 6px;
+    animation: zoomIn 0.4s ease;
+}
+
+.notice-image {
+    width: 100%;
+    height: auto;
+    border-radius: 4px;
+}
+
+.close-btn {
+    position: absolute;
+    top: -12px;
+    right: -12px;
+    background: #000;
+    color: #fff;
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    text-align: center;
+    line-height: 30px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+@keyframes zoomIn {
+    from {
+        transform: scale(0.7);
+        opacity: 0;
+    }
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+/* NOTICE BUTTON */
+.notice-btn {
+  position: fixed;
+  bottom: 20px;
+  left: 20px;
+  background: #6b3e2e;
+  color: #fff;
+  border: none;
+  padding: 12px 18px;
+  font-size: 16px;
+  border-radius: 30px;
+  cursor: pointer;
+  z-index: 9999;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.4);
+}
+
+.notice-btn:hover {
+  background: #8b4f39;
+}
+
+/* MODAL BACKGROUND */
+.notice-modal {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.85);
+  justify-content: center;
+  align-items: center;
+  z-index: 10000;
+}
+
+/* MODAL CONTENT */
+.notice-content {
+  position: relative;
+  max-width: 90%;
+  max-height: 90%;
+}
+
+/* IMAGE */
+.notice-image {
+  width: 100%;
+  height: auto;
+  border-radius: 6px;
+  box-shadow: 0 0 25px rgba(255,255,255,0.35);
+}
+
+/* ❌ CLOSE BUTTON */
+.close-btn {
+  position: absolute;
+  top: -14px;
+  right: -14px;
+  width: 40px;
+  height: 40px;
+  background: #000;
+  color: #fff;
+  font-size: 22px;
+  border-radius: 50%;
+  text-align: center;
+  line-height: 40px;
+  cursor: pointer;
+  z-index: 10001;
+}
+
+.close-btn:hover {
+  background: crimson;
+}
+
+/* MODAL BACKGROUND */
+.notice-modal {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.85);
+  justify-content: center;
+  align-items: center;
+  z-index: 10000;
+}
+
+/* MODAL CONTENT (IMPORTANT FIX) */
+.notice-content {
+  position: relative;
+  max-width: 92%;
+  max-height: 92vh;   /* 🔥 viewport height */
+  overflow-y: auto;   /* 🔥 SCROLL ENABLE */
+  background: #fff;
+  padding: 20px;
+  border-radius: 6px;
+}
+
+/* IMAGE */
+.notice-image {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* CLOSE BUTTON */
+.close-btn {
+  position: fixed;      /* 🔥 always visible */
+  top: 20px;
+  right: 20px;
+  width: 42px;
+  height: 42px;
+  background: #000;
+  color: #fff;
+  font-size: 22px;
+  border-radius: 50%;
+  text-align: center;
+  line-height: 42px;
+  cursor: pointer;
+  z-index: 10001;
+}
+
+.close-btn:hover {
+  background: crimson;
+}
