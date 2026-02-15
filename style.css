@@ -1062,3 +1062,59 @@ body.dark .mag-footer {
 .close-btn:hover {
   background: crimson;
 }
+
+/* OVERLAY */
+.notice-modal {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.85);
+  z-index: 10000;
+
+  /* MOBILE FIX */
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;   /* 🔥 top aligned */
+  padding: 20px 10px;
+  overflow-y: auto;
+}
+
+/* CONTENT BOX */
+.notice-content {
+  position: relative;
+  width: 100%;
+  max-width: 900px;
+  background: #fff;
+  padding: 15px;
+  border-radius: 6px;
+}
+
+/* IMAGE */
+.notice-image {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* CLOSE BUTTON */
+.close-btn {
+  position: sticky;     /* 🔥 mobile friendly */
+  top: 0;
+  float: right;
+  margin-bottom: 10px;
+
+  width: 40px;
+  height: 40px;
+  background: #000;
+  color: #fff;
+  font-size: 20px;
+  border-radius: 50%;
+  text-align: center;
+  line-height: 40px;
+  cursor: pointer;
+  z-index: 10001;
+}
+
+.close-btn:hover {
+  background: crimson;
+}
