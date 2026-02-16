@@ -1,54 +1,55 @@
 <!DOCTYPE html>
 <html lang="bn">
 <head>
-    <img src="WhatsApp Image 2025-09-21 at 10.44.25_c9b9f473.jpg" alt="কবিতার ঝুড়ি সাহিত্য পত্রিকা" height="80" width="90">
-    <meta charset="UTF-8">
-    <title>কবিতার ঝুড়ি সাহিত্য পত্রিকা | শব্দে শব্দে জীবনের গল্প</title>
-
-    <link rel="stylesheet" href="style.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>কবিতার ঝুড়ি সাহিত্য পত্রিকা | শব্দে শব্দে জীবনের গল্প</title>
+<link rel="stylesheet" href="style.css">
 </head>
+
 <body>
+
 <header>
     <h1>কবিতার ঝুড়ি সাহিত্য পত্রিকা</h1>
-    <img src="WhatsApp Image 2025-09-21 at 10.44.25_c9b9f473.jpg" alt="কবিতার ঝুড়ি সাহিত্য পত্রিকা" height="80" width="90">
+    <img src="WhatsApp Image 2025-09-21 at 10.44.25_c9b9f473.jpg" alt="কবিতার ঝুড়ি সাহিত্য পত্রিকা" height="80">
     <p class="tagline">শব্দে শব্দে জীবনের গল্প</p>
 </header>
 
 <nav>
     <a href="index.html">হোম</a>
     <a href="writings.html">লেখা</a>
-    
     <a href="submit.html">লেখা পাঠান</a>
     <a href="about.html">আমাদের কথা</a>
     <a href="contact.html">যোগাযোগ</a>
 </nav>
+
 <section class="Notice">
     <h2>নোটিশ</h2>
- <p><b>প্রকাশিত হতে ছলেছে নতুন পত্রিকা </b></p>
- <p><b>উষ্ণ কলম দ্বিতীয় সংখ্যা</b></p>
+    <p><b>প্রকাশিত হতে চলেছে নতুন পত্রিকা</b></p>
+    <p><b>উষ্ণ কলম — দ্বিতীয় সংখ্যা</b></p>
+    <p>
+        <a href="" onclick="openNotice(); return false;">
+            <b>👉 এটা পড়ুন </b>
+        </a>
+    </p>
 </section>
-<section class="featured">
-    <h2>প্রকাশিত পত্রিকা ও সাংকলন</h2>
-    <p><b>শারদ বার্তা ১৪৩২</b> </p>
-    <p><b>উষ্ণ কলম ই ম্যাগাজিন</b></p>
-    <p> <b>দীপান্বিতা ই ম্যাগাজিন</b>
-         </p>
-      <p><b>নিউ প্রজান্ম ই পত্রিকা </b></p> 
-      <p><b>The Voice Off Moon Whisper <br> An English Magazine</b></p>  
 
+<section class="featured">
+    <h2>প্রকাশিত পত্রিকা ও সংকলন</h2>
+    <p><b>শারদ বার্তা ১৪৩২</b></p>
+    <p><b>উষ্ণ কলম ই-ম্যাগাজিন</b></p>
+    <p><b>দীপান্বিতা ই-ম্যাগাজিন</b></p>
+    <p><b>নিউ প্রজন্ম ই-পত্রিকা</b></p>
+    <p><b>The Voice Of Moon Whisper (English Magazine)</b></p>
 </section>
 
 <section class="latest">
     <h2>নতুন প্রকাশিত লেখা</h2>
     <ul>
-        <li>বন্দি </li>
-        
+        <li>বন্দি</li>
         <li>মন যা চায়</li>
     </ul>
-    
 </section>
-<section>
-  <h2>নির্বাচিত লেখা</h2>
 
 <section class="editorial">
     <h2>সম্পাদকীয়</h2>
@@ -60,19 +61,10 @@
     </p>
 </section>
 
-
-
-
- <button onclick="document.body.classList.toggle('dark')"
+<button onclick="document.body.classList.toggle('dark')"
 style="position:fixed;bottom:20px;right:20px;">
 🌙
 </button>
-
-  
-
-
-  
-
 
 <footer class="mag-footer">
 
@@ -110,36 +102,72 @@ style="position:fixed;bottom:20px;right:20px;">
   </div>
 
 </footer>
-<!-- NOTICE BUTTON -->
-<button class="notice-btn" onclick="openNotice()">📢 Notice</button>
 
 <!-- NOTICE POPUP -->
-<div id="noticeModal" class="notice-modal">
+<div id="noticeModal" class="notice-modal" style="display:none;">
   <div class="notice-content">
+
     <span class="close-btn" onclick="closeNotice()">✖</span>
 
-    <img 
-      src="KOBITAR JHURI SAHITTO POTRIKA 2_page-0001.jpg"
-      alt="Official Notice"
-      class="notice-image"
-    >
+    <!-- NOTICE 1 -->
+    <img src="usno kolom 2nd edition_page-0001.jpg" class="notice-image notice-slide">
+
+    <!-- NOTICE 2 -->
+    <img src="1.jpg" class="notice-image notice-slide">
+
+    <!-- NOTICE 3 -->
+    <img src="2.jpg" class="notice-image notice-slide">
+    <!-- NOTICE 4 -->
+     <img src="3.jpg" class="notice-image notice-slide">
+<!-- NOTICE 5 -->
+ <img src="4.jpg" class="notice-image notice-slide">
+
+
+    <!-- CONTROLS -->
+    <div class="notice-controls">
+      <button onclick="prevNotice()">◀</button>
+      <button onclick="nextNotice()">▶</button>
+    </div>
+
   </div>
 </div>
 
 <script>
+let currentNotice = 0;
+
 function openNotice() {
   document.getElementById("noticeModal").style.display = "flex";
+  showNotice(currentNotice);
 }
 
 function closeNotice() {
   document.getElementById("noticeModal").style.display = "none";
 }
 
-/* Auto popup on first load */
-window.onload = function () {
-  setTimeout(openNotice, 10);
-};
+function showNotice(index) {
+  let notices = document.getElementsByClassName("notice-slide");
+
+  if (index >= notices.length) currentNotice = 0;
+  if (index < 0) currentNotice = notices.length - 1;
+
+  for (let i = 0; i < notices.length; i++) {
+    notices[i].style.display = "none";
+  }
+
+  notices[currentNotice].style.display = "block";
+}
+
+function nextNotice() {
+  currentNotice++;
+  showNotice(currentNotice);
+}
+
+function prevNotice() {
+  currentNotice--;
+  showNotice(currentNotice);
+}
 </script>
+
 
 </body>
 </html>
