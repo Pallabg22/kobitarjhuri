@@ -1257,3 +1257,57 @@ body.dark .editorial {
 .notice-controls button:hover {
   background: crimson;
 }
+
+/* ===== Certificate List Page ===== */
+.certificate-list {
+    max-width: 900px;
+    margin: 60px auto;
+    padding: 30px;
+    display: grid;
+    gap: 30px;
+}
+
+.certificate-card {
+    background: #fff;
+    border-radius: 10px;
+    padding: 30px 25px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+    text-align: center;
+}
+
+.certificate-card h2 {
+    font-size: 24px;
+    margin-bottom: 12px;
+    color: #5a3d35;
+}
+
+.certificate-card p {
+    font-size: 18px;
+    margin-bottom: 18px;
+}
+
+.download-btn {
+    display: inline-block;
+    background: #6b3e2e;
+    color: #fff;
+    padding: 12px 28px;
+    border-radius: 25px;
+    text-decoration: none;
+    font-size: 18px;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.download-btn:hover {
+    background: #8b4f39;
+}
+
+/* Dark mode support */
+body.dark .certificate-card {
+    background: #262321;
+    color: #e6e1dc;
+}
+body.dark .download-btn {
+    background: #444;
+    color: #fff;
+}
