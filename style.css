@@ -1,1069 +1,107 @@
-body {
-    font-family: 'Noto Serif Bengali', serif;
-    margin: 0;
-    background: #f9f6f1;
-    color: #333;
-}
-
-header {
-    background: #3b2f2f;
-    color: white;
-    padding: 20px;
-    text-align: center;
-}
-
-.tagline {
-    font-style: italic;
-    font-size: 18px;
-}
-
-nav {
-    background: #5a3e36;
-    padding: 10px;
-    text-align: center;
-}
-
-nav a {
-    color: white;
-    margin: 0 12px;
-    text-decoration: none;
-    font-weight: bold;
-}
-
-nav a:hover {
-    text-decoration: underline;
-}
-
-section {
-    padding: 20px;
-    max-width: 900px;
-    margin: auto;
-}
-
-h2 {
-    border-bottom: 2px solid #ccc;
-    padding-bottom: 5px;
-}
-
-footer {
-    background: #3b2f2f;
-    color: white;
-    text-align: center;
-    padding: 10px;
-}
-.post {
-    max-width: 700px;
-    margin: auto;
-    background: #fff;
-    padding: 25px;
-    line-height: 1.9;
-    font-size: 18px;
-}
-
-.post p {
-    margin-bottom: 20px;
-}
-.post-author {
-    text-align: center;
-    font-style: italic;
-    margin-bottom: 30px;
-}
-
-
-.submit-form label {
-    font-weight: bold;
-    display: block;
-    margin-bottom: 5px;
-}
-
-.submit-form input,
-.submit-form select,
-.submit-form textarea {
-    width: 100%;
-    padding: 10px;
-    margin-bottom: 15px;
-    border: 1px solid #ccc;
-    font-size: 16px;
-}
-
-.submit-form button {
-    background: #6b2e2e;
-    color: white;
-    border: none;
-    padding: 10px 25px;
-    font-size: 16px;
-    cursor: pointer;
-}
-
-.submit-form button:hover {
-    background: #4a1f1f;
-}
-/* Google Font */
+/* ===============================
+   GOOGLE FONT
+   =============================== */
 @import url('https://fonts.googleapis.com/css2?family=Noto+Serif+Bengali:wght@400;600;700&display=swap');
 
+/* ===============================
+   RESET & BASE
+   =============================== */
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 body {
-    font-family: 'Noto Serif Bengali', serif;
-    background-color: #faf7f2;
-    color: #2f2f2f;
-    line-height: 1.8;
-}
-
-/* Header */
-header {
-    background: #3b2a26;
-    color: #ffffff;
-    text-align: center;
-    padding: 60px 20px 40px;
-}
-
-header h1 {
-    font-size: 38px;
-    letter-spacing: 2px;
-    margin-bottom: 10px;
-}
-
-header .tagline {
-    font-size: 18px;
-    color: #e0cfc7;
-}
-
-/* Navigation */
-nav {
-    background: #5a3d35;
-    display: flex;
-    justify-content: center;
-    gap: 30px;
-    padding: 14px 10px;
-}
-
-nav a {
-    color: #fff;
-    text-decoration: none;
-    font-size: 17px;
-    position: relative;
-}
-
-nav a::after {
-    content: '';
-    position: absolute;
-    left: 0;
-    bottom: -6px;
-    width: 0;
-    height: 2px;
-    background: #f1c27d;
-    transition: 0.3s;
-}
-
-nav a:hover::after {
-    width: 100%;
-}
-
-/* Main Section */
-section {
-    max-width: 900px;
-    margin: 50px auto;
-    padding: 0 20px;
-}
-
-/* Headings */
-section h2 {
-    font-size: 26px;
-    margin-bottom: 20px;
-    border-bottom: 2px solid #d6c5b8;
-    padding-bottom: 8px;
-}
-
-/* Writing list */
-section p,
-section li {
-    font-size: 18px;
-    margin-bottom: 12px;
-}
-
-/* Submit Form */
-.submit-form {
-    background: #ffffff;
-    padding: 35px;
-    border-radius: 6px;
-    box-shadow: 0 10px 25px rgba(0,0,0,0.08);
-}
-
-.submit-form label {
-    display: block;
-    font-weight: 600;
-    margin: 20px 0 6px;
-}
-
-.submit-form input,
-.submit-form select,
-.submit-form textarea {
-    width: 100%;
-    padding: 12px;
-    font-size: 16px;
-    border: 1px solid #cbb9ac;
-    border-radius: 4px;
-    font-family: 'Noto Serif Bengali', serif;
-}
-
-.submit-form textarea {
-    resize: vertical;
-}
-
-/* Button */
-.submit-form button {
-    margin-top: 25px;
-    background: #3b2a26;
-    color: #fff;
-    padding: 14px 28px;
-    font-size: 18px;
-    border: none;
-    border-radius: 30px;
-    cursor: pointer;
-    transition: 0.3s;
-}
-
-.submit-form button:hover {
-    background: #5a3d35;
-}
-
-/* Footer */
-footer {
-    background: #3b2a26;
-    color: #d8cfc9;
-    text-align: center;
-    padding: 25px 10px;
-    margin-top: 80px;
-    font-size: 15px;
-}
-
-.featured-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-    gap: 25px;
-}
-
-.featured-card {
-    background: #fff;
-    padding: 25px;
-    border-radius: 8px;
-    box-shadow: 0 10px 25px rgba(0,0,0,0.08);
-    transition: 0.3s;
-}
-
-.featured-card:hover {
-    transform: translateY(-6px);
-}
-
-.featured-card .tag {
-    font-size: 14px;
-    color: #fff;
-    background: #5a3d35;
-    padding: 4px 12px;
-    border-radius: 20px;
-}
-
-.featured-card h3 {
-    margin: 15px 0 8px;
-}
-
-.featured-card .author {
-    color: #777;
-    font-size: 15px;
-}
-
-.featured-card a {
-    display: inline-block;
-    margin-top: 12px;
-    color: #5a3d35;
-    font-weight: bold;
-    text-decoration: none;
-}
-
-.story {
-    max-width: 720px;
-    margin: 60px auto;
-    background: #fff;
-    padding: 50px;
-    border-radius: 8px;
-    box-shadow: 0 12px 30px rgba(0,0,0,0.08);
-}
-
-.story h1 {
-    font-size: 34px;
-    margin-bottom: 10px;
-}
-
-.story .meta {
-    color: #888;
-    margin-bottom: 30px;
-}
-
-.story p {
-    font-size: 19px;
-    margin-bottom: 20px;
-}
-.story p::first-letter {
-    font-size: 40px;
-    font-weight: bold;
-    float: left;
-    margin-right: 8px;
-    color: #5a3d35;
-}
-
-body.dark {
-    background: #1e1b1a;
-    color: #e6e1dc;
-}
-
-body.dark header,
-body.dark footer,
-body.dark nav {
-    background: #12100f;
-}
-
-body.dark section,
-body.dark .featured-card,
-body.dark .story {
-    background: #262321;
-    color: #e6e1dc;
-}
-
-@import url('https://fonts.googleapis.com/css2?family=Noto+Serif+Bengali:wght@400;600;700&display=swap');
-
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-body {
-    font-family: 'Noto Serif Bengali', serif;
-    background: #faf7f2;
-    color: #2b2b2b;
-    line-height: 1.8;
-}
-
-/* ===== Header ===== */
-header {
-    background: #3b2a26;
-    color: #fff;
-    text-align: center;
-    padding: 50px 20px 40px;
-}
-
-header img {
-    margin: 15px 0;
-}
-
-header h1 {
-    font-size: 38px;
-    margin-bottom: 10px;
-    letter-spacing: 1px;
-}
-
-.tagline {
-    font-size: 18px;
-    color: #e7d6cc;
-}
-
-/* ===== Navigation ===== */
-nav {
-    background: #5a3d35;
-    display: flex;
-    justify-content: center;
-    gap: 30px;
-    padding: 14px 10px;
-    flex-wrap: wrap;
-}
-
-nav a {
-    color: #fff;
-    text-decoration: none;
-    font-size: 17px;
-    position: relative;
-}
-
-nav a::after {
-    content: '';
-    position: absolute;
-    left: 0;
-    bottom: -6px;
-    width: 0;
-    height: 2px;
-    background: #f1c27d;
-    transition: 0.3s;
-}
-
-nav a:hover::after {
-    width: 100%;
-}
-
-/* ===== Sections (Common) ===== */
-section {
-    max-width: 900px;
-    margin: 50px auto;
-    padding: 30px;
-    background: #ffffff;
-    border-radius: 6px;
-    box-shadow: 0 8px 25px rgba(0,0,0,0.06);
-}
-
-section h2 {
-    font-size: 26px;
-    margin-bottom: 15px;
-    border-bottom: 2px solid #d6c5b8;
-    padding-bottom: 8px;
-}
-
-/* ===== Notice ===== */
-.Notice {
-    background: #fff6e5;
-    border-left: 6px solid #c98c3a;
-}
-
-.Notice p {
-    font-size: 18px;
-    margin-bottom: 8px;
-}
-
-/* ===== Featured Magazines ===== */
-.featured p {
-    font-size: 18px;
-    margin-bottom: 10px;
-}
-
-/* ===== Latest Writings ===== */
-.latest ul {
-    list-style: square;
-    padding-left: 20px;
-}
-
-.latest li {
-    font-size: 18px;
-    margin-bottom: 8px;
-}
-
-/* ===== Editorial ===== */
-.editorial p {
-    font-size: 19px;
-    text-align: justify;
-}
-
-/* ===== Footer ===== */
-footer {
-    background: #3b2a26;
-    color: #e0d6d0;
-    text-align: center;
-    padding: 25px 10px;
-    margin-top: 80px;
-    font-size: 15px;
-}
-
-/* ===== Dark Mode ===== */
-body.dark {
-    background: #1e1b1a;
-    color: #e6e1dc;
-}
-
-body.dark header,
-body.dark footer,
-body.dark nav {
-    background: #12100f;
-}
-
-body.dark section {
-    background: #262321;
-    color: #e6e1dc;
-}
-
-body.dark .Notice {
-    background: #2f2a24;
-    border-left-color: #f1c27d;
-}
-
-/* ===== Writing Page Specific ===== */
-
-body {
-    background: #faf7f2;
-}
-
-/* Page Header */
-header {
-    background: linear-gradient(
-        rgba(59,42,38,0.9),
-        rgba(59,42,38,0.9)
-    );
-}
-
-/* Writing Section */
-section {
-    max-width: 900px;
-    margin: 60px auto;
-    padding: 40px;
-    background: #ffffff;
-    border-radius: 8px;
-    box-shadow: 0 12px 30px rgba(0,0,0,0.07);
-}
-
-/* Category Heading */
-section h2 {
-    font-size: 28px;
-    margin: 40px 0 20px;
-    border-left: 6px solid #5a3d35;
-    padding-left: 15px;
-    color: #3b2a26;
-}
-
-/* List Reset */
-section ul {
-    list-style: none;
-    padding-left: 0;
-    margin-bottom: 30px;
-}
-
-/* Writing Item */
-section ul li {
-    background: #f8f3ee;
-    margin-bottom: 15px;
-    padding: 18px 20px;
-    border-radius: 6px;
-    font-size: 19px;
-    transition: 0.3s;
-    border-left: 5px solid transparent;
-}
-
-/* Hover Effect */
-section ul li:hover {
-    background: #f1e7df;
-    border-left-color: #c98c3a;
-    transform: translateX(5px);
-}
-
-/* Link Style */
-section ul li a {
-    text-decoration: none;
-    color: #2b2b2b;
-    display: block;
-}
-
-/* Footer */
-footer {
-    margin-top: 100px;
-}
-
-/* ===== Dark Mode Support ===== */
-body.dark section {
-    background: #262321;
-}
-
-body.dark section ul li {
-    background: #2f2a24;
-    color: #e6e1dc;
-}
-
-body.dark section ul li:hover {
-    background: #3a342d;
-}
-
-/* ===== Submit Page ===== */
-
-/* Section wrapper */
-section {
-    max-width: 900px;
-    margin: 60px auto;
-    padding: 35px;
-    background: #ffffff;
-    border-radius: 10px;
-    box-shadow: 0 12px 30px rgba(0,0,0,0.08);
-}
-
-/* Page Header look */
-header {
-    background: linear-gradient(
-        rgba(59,42,38,0.92),
-        rgba(59,42,38,0.92)
-    );
-}
-
-/* Iframe (Google Form) */
-section iframe {
-    width: 100%;
-    height: 900px;
-    border: none;
-    border-radius: 8px;
-}
-
-/* Footer spacing */
-footer {
-    margin-top: 100px;
-}
-
-/* ===== Dark Mode Support ===== */
-body.dark section {
-    background: #262321;
-}
-
-body.dark section iframe {
-    background: #262321;
-}
-
-/* ===== About Page Style ===== */
-
-/* Section wrapper */
-section {
-    max-width: 850px;
-    margin: 70px auto;
-    padding: 50px;
-    background: #ffffff;
-    border-radius: 10px;
-    box-shadow: 0 14px 35px rgba(0,0,0,0.08);
-}
-
-/* Header look */
-header {
-    background: linear-gradient(
-        rgba(59,42,38,0.95),
-        rgba(59,42,38,0.95)
-    );
-}
-
-/* Paragraph style */
-section p {
-    font-size: 20px;
-    line-height: 2;
-    margin-bottom: 25px;
-    text-align: justify;
-    color: #2b2b2b;
-}
-
-/* Decorative first letter (book style) */
-section p:first-letter {
-    font-size: 42px;
-    font-weight: bold;
-    float: left;
-    margin-right: 10px;
-    line-height: 1;
-    color: #5a3d35;
-}
-
-/* Footer spacing */
-footer {
-    margin-top: 120px;
-}
-
-/* ===== Dark Mode Support ===== */
-body.dark section {
-    background: #262321;
-}
-
-body.dark section p {
-    color: #e6e1dc;
-}
-
-body.dark section p:first-letter {
-    color: #f1c27d;
+  font-family: 'Noto Serif Bengali', serif;
+  background: #f7f4ef;
+  color: #2b2b2b;
+  line-height: 1.8;
 }
 
 /* ===============================
-   HOMEPAGE MAGAZINE STYLE
+   HEADER
    =============================== */
-
-/* Header refinement */
 header {
-    background: linear-gradient(135deg, #3b2a26, #5a3d35);
-    color: #fff;
-    text-align: center;
-    padding: 60px 20px 45px;
-}
-
-header img {
-    margin: 15px 0;
-}
-
-header h1 {
-    font-size: 40px;
-    margin-bottom: 8px;
-    letter-spacing: 1px;
-}
-
-.tagline {
-    font-size: 18px;
-    color: #f1e3db;
-}
-
-/* Notice */
-.Notice {
-    max-width: 900px;
-    margin: 50px auto;
-    padding: 30px;
-    background: #fff6e5;
-    border-left: 8px solid #c98c3a;
-    border-radius: 8px;
-}
-
-.Notice h2 {
-    margin-bottom: 12px;
-}
-
-/* Featured magazines */
-.featured {
-    max-width: 900px;
-    margin: 60px auto;
-    padding: 40px;
-    background: #ffffff;
-    border-radius: 10px;
-    box-shadow: 0 12px 30px rgba(0,0,0,0.08);
-}
-
-.featured p {
-    font-size: 19px;
-    margin-bottom: 12px;
-    padding-left: 15px;
-    border-left: 4px solid #5a3d35;
-}
-
-/* Latest writings */
-.latest {
-    max-width: 900px;
-    margin: 60px auto;
-    padding: 40px;
-    background: #f8f3ee;
-    border-radius: 10px;
-}
-
-.latest ul {
-    list-style: none;
-    padding-left: 0;
-}
-
-.latest li {
-    background: #ffffff;
-    margin-bottom: 15px;
-    padding: 18px 20px;
-    font-size: 19px;
-    border-radius: 6px;
-    box-shadow: 0 6px 18px rgba(0,0,0,0.06);
-    transition: 0.3s;
-}
-
-.latest li:hover {
-    transform: translateX(6px);
-}
-
-/* Editorial */
-.editorial {
-    max-width: 850px;
-    margin: 80px auto;
-    padding: 50px;
-    background: #ffffff;
-    border-radius: 12px;
-    box-shadow: 0 14px 35px rgba(0,0,0,0.08);
-}
-
-.editorial p {
-    font-size: 20px;
-    line-height: 2;
-    text-align: justify;
-}
-
-.editorial p:first-letter {
-    font-size: 42px;
-    font-weight: bold;
-    float: left;
-    margin-right: 10px;
-    color: #5a3d35;
-}
-
-/* Dark mode homepage */
-body.dark header {
-    background: linear-gradient(135deg, #12100f, #1e1b1a);
-}
-
-body.dark .Notice {
-    background: #2f2a24;
-    color: #e6e1dc;
-}
-
-body.dark .featured,
-body.dark .latest,
-body.dark .editorial {
-    background: #262321;
-    color: #e6e1dc;
-}
-
-body.dark .latest li {
-    background: #2f2a24;
-}
-
-/* ===============================
-   MAGAZINE STYLE FOOTER
-   =============================== */
-
-.mag-footer {
-    background: #2b1f1b;
-    color: #e6ded9;
-    padding: 60px 20px 20px;
-    margin-top: 120px;
-}
-
-.footer-grid {
-    max-width: 1100px;
-    margin: auto;
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 40px;
-}
-
-.mag-footer h3,
-.mag-footer h4 {
-    color: #f1c27d;
-    margin-bottom: 15px;
-}
-
-.footer-about p {
-    line-height: 1.9;
-    font-size: 16px;
-}
-
-.footer-links ul {
-    list-style: none;
-    padding: 0;
-}
-
-.footer-links li {
-    margin-bottom: 10px;
-}
-
-.footer-links a {
-    color: #e6ded9;
-    text-decoration: none;
-    transition: 0.3s;
-}
-
-.footer-links a:hover {
-    color: #f1c27d;
-    padding-left: 6px;
-}
-
-.footer-contact p {
-    margin-bottom: 10px;
-    font-size: 16px;
-}
-
-.footer-bottom {
-    border-top: 1px solid rgba(255,255,255,0.15);
-    margin-top: 40px;
-    padding-top: 20px;
-    text-align: center;
-    font-size: 14px;
-    color: #cfc4bd;
-}
-
-/* Dark mode footer (already matches, but safety) */
-body.dark .mag-footer {
-    background: #12100f;
-}
-
-/* ===============================
-   NOTICE POPUP STYLE
-   =============================== */
-
-.notice-btn {
-    position: fixed;
-    bottom: 80px;
-    right: 20px;
-    background: #7b2d26;
-    color: #fff;
-    border: none;
-    padding: 12px 16px;
-    border-radius: 30px;
-    cursor: pointer;
-    font-size: 15px;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.3);
-    z-index: 999;
-}
-
-.notice-btn:hover {
-    background: #9c3b32;
-}
-
-.notice-modal {
-    display: none;
-    position: fixed;
-    inset: 0;
-    background: rgba(0,0,0,0.85);
-    z-index: 1000;
-    justify-content: center;
-    align-items: center;
-    padding: 20px;
-}
-
-.notice-content {
-    position: relative;
-    background: #fff;
-    padding: 15px;
-    max-width: 900px;
-    width: 100%;
-    border-radius: 6px;
-    animation: zoomIn 0.4s ease;
-}
-
-.notice-image {
-    width: 100%;
-    height: auto;
-    border-radius: 4px;
-}
-
-.close-btn {
-    position: absolute;
-    top: -12px;
-    right: -12px;
-    background: #000;
-    color: #fff;
-    border-radius: 50%;
-    width: 30px;
-    height: 30px;
-    text-align: center;
-    line-height: 30px;
-    cursor: pointer;
-    font-size: 16px;
-}
-
-@keyframes zoomIn {
-    from {
-        transform: scale(0.7);
-        opacity: 0;
-    }
-    to {
-        transform: scale(1);
-        opacity: 1;
-    }
-}
-
-/* NOTICE BUTTON */
-.notice-btn {
-  position: fixed;
-  bottom: 20px;
-  left: 20px;
-  background: #6b3e2e;
+  background: linear-gradient(135deg, #3b2a26, #5a3d35);
   color: #fff;
-  border: none;
-  padding: 12px 18px;
-  font-size: 16px;
-  border-radius: 30px;
-  cursor: pointer;
-  z-index: 9999;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.4);
+  text-align: center;
+  padding: 60px 20px 45px;
 }
 
-.notice-btn:hover {
-  background: #8b4f39;
+header img {
+  margin: 15px 0;
+  height: 80px;
 }
 
-/* MODAL BACKGROUND */
-.notice-modal {
-  display: none;
-  position: fixed;
-  inset: 0;
-  background: rgba(0,0,0,0.85);
+header h1 {
+  font-size: 40px;
+  margin-bottom: 8px;
+  letter-spacing: 1px;
+}
+
+.tagline {
+  font-size: 18px;
+  color: #f1e3db;
+  font-style: italic;
+}
+
+/* ===============================
+   NAVIGATION
+   =============================== */
+nav {
+  background: #2b1f1b;
+  display: flex;
   justify-content: center;
-  align-items: center;
-  z-index: 10000;
+  flex-wrap: wrap;
+  gap: 25px;
+  padding: 14px 10px;
 }
 
-/* MODAL CONTENT */
-.notice-content {
+nav a {
+  color: #fff;
+  text-decoration: none;
+  font-size: 17px;
+  font-weight: 600;
   position: relative;
-  max-width: 90%;
-  max-height: 90%;
 }
 
-/* IMAGE */
-.notice-image {
-  width: 100%;
-  height: auto;
-  border-radius: 6px;
-  box-shadow: 0 0 25px rgba(255,255,255,0.35);
-}
-
-/* ❌ CLOSE BUTTON */
-.close-btn {
+nav a::after {
+  content: '';
   position: absolute;
-  top: -14px;
-  right: -14px;
-  width: 40px;
-  height: 40px;
-  background: #000;
-  color: #fff;
-  font-size: 22px;
-  border-radius: 50%;
-  text-align: center;
-  line-height: 40px;
-  cursor: pointer;
-  z-index: 10001;
+  left: 0;
+  bottom: -6px;
+  width: 0;
+  height: 2px;
+  background: #f1c27d;
+  transition: 0.3s;
 }
 
-.close-btn:hover {
-  background: crimson;
-}
-
-/* MODAL BACKGROUND */
-.notice-modal {
-  display: none;
-  position: fixed;
-  inset: 0;
-  background: rgba(0,0,0,0.85);
-  justify-content: center;
-  align-items: center;
-  z-index: 10000;
-}
-
-/* MODAL CONTENT (IMPORTANT FIX) */
-.notice-content {
-  position: relative;
-  max-width: 92%;
-  max-height: 92vh;   /* 🔥 viewport height */
-  overflow-y: auto;   /* 🔥 SCROLL ENABLE */
-  background: #fff;
-  padding: 20px;
-  border-radius: 6px;
-}
-
-/* IMAGE */
-.notice-image {
+nav a:hover::after {
   width: 100%;
-  height: auto;
-  display: block;
 }
 
-/* CLOSE BUTTON */
-.close-btn {
-  position: fixed;      /* 🔥 always visible */
-  top: 20px;
-  right: 20px;
-  width: 42px;
-  height: 42px;
-  background: #000;
-  color: #fff;
-  font-size: 22px;
-  border-radius: 50%;
-  text-align: center;
-  line-height: 42px;
-  cursor: pointer;
-  z-index: 10001;
+/* ===============================
+   COMMON SECTION
+   =============================== */
+section {
+  max-width: 900px;
+  margin: 60px auto;
+  padding: 40px;
+  background: #ffffff;
+  border-radius: 10px;
+  box-shadow: 0 12px 30px rgba(0,0,0,0.08);
 }
 
-.close-btn:hover {
-  background: crimson;
+section h2 {
+  font-size: 28px;
+  margin-bottom: 18px;
+  border-bottom: 2px solid #d6c5b8;
+  padding-bottom: 10px;
 }
 
-/* OVERLAY */
+/* ===== NOTICE MODAL (FINAL FIX) ===== */
+
 .notice-modal {
   display: none;
   position: fixed;
@@ -1071,10 +109,8 @@ body.dark .mag-footer {
   background: rgba(0,0,0,0.85);
   z-index: 10000;
 
-  /* MOBILE FIX */
-  display: none;
   justify-content: center;
-  align-items: flex-start;   /* 🔥 top aligned */
+  align-items: flex-start;   /* 🔥 উপরে আটকে থাকবে */
   padding: 20px 10px;
   overflow-y: auto;
 }
@@ -1086,10 +122,13 @@ body.dark .mag-footer {
   max-width: 900px;
   background: #fff;
   padding: 15px;
-  border-radius: 6px;
+  border-radius: 8px;
+
+  max-height: 90vh;          /* 🔥 screen ছাড়াবে না */
+  overflow-y: auto;          /* 🔥 ভেতরে scroll */
 }
 
-/* IMAGE */
+/* IMAGE / TABLE */
 .notice-image {
   width: 100%;
   height: auto;
@@ -1098,10 +137,9 @@ body.dark .mag-footer {
 
 /* CLOSE BUTTON */
 .close-btn {
-  position: sticky;     /* 🔥 mobile friendly */
+  position: sticky;          /* 🔥 scroll করলেও উপরে থাকবে */
   top: 0;
   float: right;
-  margin-bottom: 10px;
 
   width: 40px;
   height: 40px;
@@ -1119,125 +157,7 @@ body.dark .mag-footer {
   background: crimson;
 }
 
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: "Noto Serif Bengali", serif;
-}
-
-body {
-  background: #f7f4ef;
-  color: #222;
-  line-height: 1.7;
-}
-
-.site-header {
-  background: #2b1e1e;
-  color: #fff;
-  text-align: center;
-  padding: 30px 10px;
-}
-
-.logo-area img {
-  height: 70px;
-}
-
-.main-nav {
-  display: flex;
-  justify-content: center;
-  gap: 20px;
-  background: #4b2f2f;
-  padding: 12px;
-}
-
-.main-nav a {
-  color: #fff;
-  text-decoration: none;
-  font-weight: bold;
-}
-
-.notice-bar {
-  background: #fff3cd;
-  padding: 12px;
-  text-align: center;
-  font-weight: bold;
-}
-
-.featured-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit,minmax(250px,1fr));
-  gap: 20px;
-  padding: 30px;
-}
-
-.card {
-  background: #fff;
-  padding: 20px;
-  border-left: 5px solid #6b3e3e;
-  box-shadow: 0 5px 15px rgba(0,0,0,.1);
-}
-
-.card.big {
-  grid-column: span 2;
-}
-
-.card a {
-  color: #6b3e3e;
-  text-decoration: none;
-  font-weight: bold;
-}
-
-.editorial {
-  background: #efe6dc;
-  padding: 40px;
-  margin: 30px;
-}
-
-.site-footer {
-  background: #2b1e1e;
-  color: #ddd;
-  padding: 30px;
-}
-
-.footer-cols {
-  display: grid;
-  grid-template-columns: repeat(auto-fit,minmax(200px,1fr));
-  gap: 20px;
-}
-
-.site-footer a {
-  color: #ffd;
-  text-decoration: none;
-}
-
-.copyright {
-  text-align: center;
-  margin-top: 20px;
-  font-size: 14px;
-}
-
-/* Dark Mode */
-body.dark {
-  background: #121212;
-  color: #eee;
-}
-
-body.dark .card,
-body.dark .editorial {
-  background: #1e1e1e;
-}
-
-.dark-toggle {
-  position: fixed;
-  bottom: 20px;
-  right: 20px;
-  border: none;
-  padding: 10px 14px;
-  border-radius: 50%;
-  font-size: 18px;
-}
-
+/* CONTROLS */
 .notice-controls {
   text-align: center;
   margin-top: 15px;
@@ -1258,56 +178,128 @@ body.dark .editorial {
   background: crimson;
 }
 
-/* ===== Certificate List Page ===== */
-.certificate-list {
-    max-width: 900px;
-    margin: 60px auto;
-    padding: 30px;
-    display: grid;
-    gap: 30px;
+/* ===============================
+   FEATURED MAGAZINE
+   =============================== */
+.featured p {
+  font-size: 19px;
+  margin-bottom: 12px;
+  padding-left: 15px;
+  border-left: 4px solid #5a3d35;
 }
 
-.certificate-card {
-    background: #fff;
-    border-radius: 10px;
-    padding: 30px 25px;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.08);
-    text-align: center;
+/* ===============================
+   EDITORIAL
+   =============================== */
+.editorial p {
+  font-size: 20px;
+  line-height: 2;
+  text-align: justify;
 }
 
-.certificate-card h2 {
-    font-size: 24px;
-    margin-bottom: 12px;
-    color: #5a3d35;
+.editorial p:first-letter {
+  font-size: 42px;
+  font-weight: bold;
+  float: left;
+  margin-right: 10px;
+  color: #5a3d35;
 }
 
-.certificate-card p {
-    font-size: 18px;
-    margin-bottom: 18px;
+/* ===============================
+   NOTICE READ BUTTON
+   =============================== */
+.notice-read-btn {
+  background: linear-gradient(135deg,#c98c3a,#e6b76b);
+  color: #2b1f1b;
+  padding: 10px 22px;
+  border-radius: 30px;
+  font-size: 18px;
+  font-weight: bold;
+  border: none;
+  cursor: pointer;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.25);
+  animation: pulse 2s infinite;
 }
 
-.download-btn {
-    display: inline-block;
-    background: #6b3e2e;
-    color: #fff;
-    padding: 12px 28px;
-    border-radius: 25px;
-    text-decoration: none;
-    font-size: 18px;
-    font-weight: bold;
-    transition: 0.3s;
+@keyframes pulse {
+  0% { box-shadow: 0 0 0 0 rgba(201,140,58,0.7); }
+  70% { box-shadow: 0 0 0 15px rgba(201,140,58,0); }
+  100% { box-shadow: 0 0 0 0 rgba(201,140,58,0); }
+}coration: underline;
+
+/* ===============================
+   FOOTER
+   =============================== */
+.mag-footer {
+  background: #2b1f1b;
+  color: #e6ded9;
+  padding: 60px 20px 20px;
+  margin-top: 120px;
 }
 
-.download-btn:hover {
-    background: #8b4f39;
+.footer-grid {
+  max-width: 1100px;
+  margin: auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 40px;
 }
 
-/* Dark mode support */
-body.dark .certificate-card {
-    background: #262321;
-    color: #e6e1dc;
+.mag-footer h3,
+.mag-footer h4 {
+  color: #f1c27d;
 }
-body.dark .download-btn {
-    background: #444;
-    color: #fff;
+
+.footer-bottom {
+  border-top: 1px solid rgba(255,255,255,0.15);
+  margin-top: 40px;
+  padding-top: 20px;
+  text-align: center;
+  font-size: 14px;
+}
+
+/* ===============================
+   DARK MODE SUPPORT
+   =============================== */
+body.dark {
+  background: #1e1b1a;
+  color: #e6e1dc;
+}
+
+body.dark header,
+body.dark nav,
+body.dark .mag-footer {
+  background: #12100f;
+}
+
+body.dark section {
+  background: #262321;
+}
+
+body.dark .Notice.floating-notice {
+  background: #2f2a24;
+  border-left-color: #f1c27d;
+}
+
+/* HEADER HEIGHT REDUCE */
+header {
+  padding: 35px 20px 25px;   /* আগে ছিল 60px+ */
+}
+
+header h1 {
+  font-size: 32px;          /* আগে 40px */
+}
+
+header img {
+  height: 65px;             /* আগে 80px */
+}
+
+/* NAV HEIGHT REDUCE */
+nav {
+  padding: 10px 10px;       /* আগে 14px */
+  gap: 18px;
+}
+
+nav a {
+  font-size: 16px;
 }

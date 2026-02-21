@@ -23,34 +23,66 @@
     <a href="contact.html">যোগাযোগ</a>
 </nav>
 
-<section class="Notice">
+<!-- 🔥 FLOATING NOTICE -->
+<section class="Notice floating-notice">
     <h2>নোটিশ</h2>
     <p><b>প্রকাশিত হতে চলেছে নতুন পত্রিকা</b></p>
     <p><b>উষ্ণ কলম — দ্বিতীয় সংখ্যা</b></p>
     <p>
-        <a href="" onclick="openNotice(); return false;">
-            <b>👉 এটা পড়ুন </b>
-        </a>
+        <button class="notice-read-btn" onclick="openNotice()">
+            👉 এটা পড়ুন
+        </button>
     </p>
 </section>
+
+<!-- ✅ SPACER (ONLY ONE) -->
+<div class="notice-spacer"></div>
 
 <section class="Upcoming">
     <h2>Upcoming Events</h2>
     <ul>
         <li>শুভ মাতৃভাষা দিবস</li>
-        <li></li>
+        <li>অনলাইন আবৃতি প্রতিযোগিতা</li>
     </ul>
 </section>
-<section class="featured">
-    <h2>প্রকাশিত পত্রিকা ও সংকলন</h2>
-    <p><b>শারদ বার্তা ১৪৩২</b></p>
-    <p><b>উষ্ণ কলম ই-ম্যাগাজিন</b></p>
-    <p><b>দীপান্বিতা ই-ম্যাগাজিন</b></p>
-    <p><b>নিউ প্রজন্ম ই-পত্রিকা</b></p>
-    <p><b>The Voice Of Moon Whisper (English Magazine)</b></p>
+
+<section class="featured-cards">
+  <h2>প্রকাশিত পত্রিকা ও সংকলন</h2>
+
+  <div class="card-grid">
+
+    <div class="mag-card">
+      <img src="Sharodbarta Cover.jpeg"height="50" width="100" loading="lazy" alt="শারদ বার্তা ১৪৩২">
+      <h3>শারদ বার্তা ১৪৩২</h3>
+    </div>
+
+    <div class="mag-card">
+      <img src="1.jpg" loading="lazy"height="50" width="100" alt="উষ্ণ কলম ই-ম্যাগাজিন">
+      <h3>উষ্ণ কলম ই-ম্যাগাজিন</h3>
+    </div>
+
+    <div class="mag-card">
+      <img src="Dipwanwita Cover.png" loading="lazy"height="50" width="100" alt="দীপান্বিতা ই-ম্যাগাজিন">
+      <h3>দীপান্বিতা ই-ম্যাগাজিন</h3>
+    </div>
+
+    <!-- 🔥 NEW -->
+    <div class="mag-card">
+      <img src="New prajanmo.JPG" loading="lazy"height="50" width="100" alt="নিউ প্রজন্ম ই পত্রিকা">
+      <h3>নিউ প্রজন্ম ই-পত্রিকা</h3>
+    </div>
+
+    <!-- 🔥 NEW -->
+    <div class="mag-card">
+      <img src="Voice of moon Whisper Cover.jpeg"height="50" width="100" loading="lazy" alt="The Voice of Moon Whisper">
+      <h3>The Voice of Moon Whisper</h3>
+      <small style="display:block;text-align:center;color:#777;">
+        English Magazine
+      </small>
+    </div>
+
+  </div>
 </section>
-
-
 
 <section class="editorial">
     <h2>সম্পাদকীয়</h2>
@@ -68,9 +100,7 @@ style="position:fixed;bottom:20px;right:20px;">
 </button>
 
 <footer class="mag-footer">
-
   <div class="footer-grid">
-
     <div class="footer-about">
       <h3>কবিতার ঝুড়ি সাহিত্য পত্রিকা</h3>
       <p>
@@ -93,43 +123,30 @@ style="position:fixed;bottom:20px;right:20px;">
     <div class="footer-contact">
       <h4>যোগাযোগ</h4>
       <p>📧 kobitarjhuriepotrika@gmail.com</p>
-      <p>📘 Facebook গ্রুপ <a href=""></a></p>
+      <p>📘 Facebook গ্রুপ</p>
     </div>
-
   </div>
 
   <div class="footer-bottom">
     © 2026 কবিতার ঝুড়ি সাহিত্য পত্রিকা | সর্বস্বত্ব সংরক্ষিত
   </div>
-
 </footer>
 
-<!-- NOTICE POPUP -->
+<!-- NOTICE MODAL -->
 <div id="noticeModal" class="notice-modal" style="display:none;">
   <div class="notice-content">
-
     <span class="close-btn" onclick="closeNotice()">✖</span>
 
-    <!-- NOTICE 1 -->
     <img src="usno kolom 2nd edition_page-0001.jpg" class="notice-image notice-slide">
-
-    <!-- NOTICE 2 -->
     <img src="1.jpg" class="notice-image notice-slide">
-
-    <!-- NOTICE 3 -->
     <img src="2.jpg" class="notice-image notice-slide">
-    <!-- NOTICE 4 -->
-     <img src="3.jpg" class="notice-image notice-slide">
-<!-- NOTICE 5 -->
- <img src="4.jpg" class="notice-image notice-slide">
+    <img src="3.jpg" class="notice-image notice-slide">
+    <img src="4.jpg" class="notice-image notice-slide">
 
-
-    <!-- CONTROLS -->
     <div class="notice-controls">
       <button onclick="prevNotice()">◀</button>
       <button onclick="nextNotice()">▶</button>
     </div>
-
   </div>
 </div>
 
@@ -146,7 +163,7 @@ function closeNotice() {
 }
 
 function showNotice(index) {
-  let notices = document.getElementsByClassName("notice-slide");
+  const notices = document.getElementsByClassName("notice-slide");
 
   if (index >= notices.length) currentNotice = 0;
   if (index < 0) currentNotice = notices.length - 1;
@@ -168,7 +185,6 @@ function prevNotice() {
   showNotice(currentNotice);
 }
 </script>
-
 
 </body>
 </html>
