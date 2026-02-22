@@ -18,6 +18,7 @@
 <nav>
   <a href="index.html">হোম</a>
   <a href="certificate.html">সার্টিফিকেট ডাউনলোড করুন</a>
+  <a href="onlineeventsandcompitition.html">অনলাইন প্রতিযোগিতা</a>
   <a href="submit.html">লেখা পাঠান</a>
   <a href="about.html">আমাদের কথা</a>
   <a href="contact.html">যোগাযোগ</a>
@@ -34,25 +35,7 @@
 <!-- spacer -->
 <div class="notice-spacer"></div>
 
-<section class="online-recitation">
-  <h2>🎤 অনলাইন আবৃতি প্রতিযোগিতা</h2>
 
-  <div class="recitation-box">
-    <h3>Topic: Recitation<br>Recurring Zoom Meeting</h3>
-    <h4>Meeting ID: 885 0301 1239<br>Passcode: Recitation</h4>
-
-    <a class="join-btn"
-       href="https://us05web.zoom.us/j/88503011239?pwd=kAFnXw9avb2Toa6yzE5yVdpa2X1IOv.1"
-       target="_blank" rel="noopener">
-       🔗 Join Now
-    </a>
-
-    <div class="countdown-wrapper">
-      <p class="countdown-title">⏳ Meeting starts in</p>
-      <div id="countdown" class="countdown-timer">Loading...</div>
-    </div>
-  </div>
-</section>
 <section class="Cover">
 <h2>Publishable Books Book Cover</h2>
 <ul>
@@ -203,22 +186,6 @@ function showNotice(n) {
 function nextNotice(){ showNotice(currentNotice+1); }
 function prevNotice(){ showNotice(currentNotice-1); }
 
-/* COUNTDOWN */
-const meetingTime = new Date("2026-02-21T17:30:00").getTime();
-const countdownEl = document.getElementById("countdown");
-
-setInterval(() => {
-  const now = Date.now();
-  const d = meetingTime - now;
-  if (d <= 0) {
-    countdownEl.innerHTML = "🔴 Live Now";
-    return;
-  }
-  const h = Math.floor((d/1000/60/60)%24);
-  const m = Math.floor((d/1000/60)%60);
-  const s = Math.floor((d/1000)%60);
-  countdownEl.innerHTML = `${h}h ${m}m ${s}s`;
-}, 1000);
 </script>
 
 </body>
