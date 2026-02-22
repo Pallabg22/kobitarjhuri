@@ -303,3 +303,109 @@ nav {
 nav a {
   font-size: 16px;
 }
+
+/* ===============================
+   ONLINE RECITATION SECTION
+   =============================== */
+
+.online-recitation {
+  max-width: 900px;
+  margin: 60px auto;
+  padding: 40px;
+  background: linear-gradient(135deg, #fff6e5, #fff);
+  border-radius: 12px;
+  box-shadow: 0 12px 30px rgba(0,0,0,0.08);
+  text-align: center;
+  border-left: 8px solid #c98c3a;
+}
+
+.online-recitation h2 {
+  font-size: 30px;
+  margin-bottom: 20px;
+  color: #3b2a26;
+}
+
+.recitation-box h3 {
+  font-size: 20px;
+  line-height: 1.7;
+  margin-bottom: 18px;
+}
+
+.recitation-box h4 {
+  font-size: 18px;
+  font-weight: normal;
+  margin-bottom: 25px;
+  color: #5a3d35;
+}
+
+/* JOIN BUTTON */
+.join-btn {
+  display: inline-block;
+  background: linear-gradient(135deg, #7b2d26, #a83b32);
+  color: #fff;
+  padding: 14px 36px;
+  border-radius: 40px;
+  font-size: 18px;
+  font-weight: bold;
+  text-decoration: none;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.25);
+  transition: all 0.3s ease;
+}
+
+.join-btn:hover {
+  background: linear-gradient(135deg, #a83b32, #7b2d26);
+  transform: translateY(-3px) scale(1.05);
+}
+
+/* Dark mode support */
+body.dark .online-recitation {
+  background: #262321;
+  color: #e6e1dc;
+  border-left-color: #f1c27d;
+}
+
+body.dark .join-btn {
+  background: linear-gradient(135deg, #444, #666);
+}
+/* ===============================
+   COUNTDOWN TIMER
+   =============================== */
+
+.countdown-wrapper {
+  margin: 25px 0;
+}
+
+.countdown-title {
+  font-size: 18px;
+  margin-bottom: 10px;
+  font-weight: bold;
+  color: #5a3d35;
+}
+
+.countdown-timer {
+  display: inline-block;
+  background: #3b2a26;
+  color: #fff;
+  padding: 14px 26px;
+  border-radius: 30px;
+  font-size: 20px;
+  letter-spacing: 1px;
+  box-shadow: 0 4px 14px rgba(0,0,0,0.25);
+}
+
+/* Live state */
+.countdown-live {
+  background: crimson;
+  animation: pulse 1.2s infinite;
+}
+
+@keyframes pulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.08); }
+  100% { transform: scale(1); }
+}
+
+/* Dark mode */
+body.dark .countdown-timer {
+  background: #12100f;
+}
