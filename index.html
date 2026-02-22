@@ -30,7 +30,7 @@
   <p><b>প্রকাশিত হতে চলেছে নতুন পত্রিকা</b></p>
   <p><b>উষ্ণ কলম — দ্বিতীয় সংখ্যা</b></p>
   <button class="notice-read-btn" onclick="openNotice()">👉 এটা পড়ুন</button>
-</section>
+  
 
 <!-- spacer -->
 <div class="notice-spacer"></div>
@@ -153,11 +153,11 @@ style="position:fixed;bottom:20px;right:20px;">
   <div class="notice-content">
     <span class="close-btn" onclick="closeNotice()">✖</span>
 
-    <img src="usno kolom 2nd edition_page-0001.jpg" class="notice-slide">
-    <img src="1.jpg" class="notice-slide">
-    <img src="2.jpg" class="notice-slide">
-    <img src="3.jpg" class="notice-slide">
-    <img src="4.jpg" class="notice-slide">
+    <img src="" class="notice-slide">
+    <img src="" class="notice-slide">
+    <img src="" class="notice-slide">
+    <img src="" class="notice-slide">
+    <img src="" class="notice-slide">
 
     <div class="notice-controls">
       <button onclick="prevNotice()">◀</button>
@@ -185,6 +185,13 @@ function showNotice(n) {
 }
 function nextNotice(){ showNotice(currentNotice+1); }
 function prevNotice(){ showNotice(currentNotice-1); }
+
+function openNotice(btn) {
+    // আপনার notice open করার code এখানে থাকবে
+
+    // বাটনটা hide করে দেবে
+    btn.style.display = "none";
+}
 
 </script>
 
