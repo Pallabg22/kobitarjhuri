@@ -24,6 +24,7 @@ body {
    =============================== */
 header {
   background: linear-gradient(135deg, #3b2a26, #5a3d35);
+  
   color: #fff;
   text-align: center;
   padding: 60px 20px 45px;
@@ -263,7 +264,7 @@ section h2 {
    =============================== */
 body.dark {
   background: #1e1b1a;
-  color: #e6e1dc;
+  color: #ecddce;
 }
 
 body.dark header,
@@ -408,4 +409,33 @@ body.dark .join-btn {
 /* Dark mode */
 body.dark .countdown-timer {
   background: #12100f;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    
+    background-image: url("WhatsApp\ Image\ 2025-09-21\ at\ 10.44.25_c9b9f473.jpg");
+    background-size: cover;          /* পুরো পেজ জুড়ে থাকবে */
+    background-position: center;     /* মাঝখানে ফোকাস */
+    background-repeat: no-repeat;    /* রিপিট হবে না */
+    background-attachment: fixed;    /* স্ক্রল করলে background স্থির থাকবে */
+}
+
+.content {
+    padding: 50px;
+}
+.content {
+    max-width: 800px;
+    margin: auto;
+    background: rgba(238, 235, 235, 0.85);
+    padding: 30px;
+    border-radius: 10px;
+}
+.box {
+    background-image: url("background.jpg");
+    background-size: cover;
+    background-position: center;
+    width: 100%;
+    min-height: 100vh;
 }
