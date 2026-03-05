@@ -1,0 +1,71 @@
+<h2>Pending Poems</h2>
+
+<div id="poems"></div>
+
+<script>
+
+/* ADMIN CHECK */
+var user = localStorage.getItem("user");
+
+if(user !== "pallabguchhait03@gmail.com"){
+alert("Admin only");
+window.location="index.html";
+}
+
+/* API URL */
+var url="https://script.google.com/macros/s/AKfycbyC27QB6KcHhZ_yF3zYkpO1F4k6fbqsNR5FaNt2Ag_a128AGIfOqxNTxQXz6_yL2KSQvw/exec";
+
+/* LOAD POEMS */
+
+fetch(url+"?action=getPoems")
+
+.then(r=>r.json())
+
+.then(data=>{
+
+var html="";
+
+data.forEach(function(p){
+
+html+=`
+<div class="poem-card">
+
+<h3>${p.title}</h3>
+
+<p>${p.poem}</p>
+
+<p><b>Author:</b> ${p.author}</p>
+
+<button onclick="approve('${p.id}')">Approve</button>
+
+<hr>
+
+</div>
+`;
+
+});
+
+document.getElementById("poems").innerHTML=html;
+
+});
+
+
+/* APPROVE FUNCTION */
+
+function approve(id){
+
+fetch(url+"?action=approve&id="+id)
+
+.then(r=>r.text())
+
+.then(d=>{
+
+alert("Poem Approved");
+
+location.reload();
+
+})
+
+}
+
+</script>

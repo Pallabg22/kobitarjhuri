@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="bn">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Login</title>
+
+<link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+
+<h2 class="form-title">Login</h2>
+
+<form id="login">
+<input name="email" placeholder="Email" required>
+
+<input name="password" type="password" placeholder="Password" required>
+
+<button>Login</button>
+
+</form>
+
+
+<script>
+
+document.getElementById("login").onsubmit=function(e){
+
+e.preventDefault();
+
+fetch("https://script.google.com/macros/s/AKfycbxxg00JCIlS1CJtw7QMfCN8x2MZltkn8SCWYz1gC9-gZmWUsM94mXKefGm0TzvHbbMhTA/exec?action=login&email="+this.email.value+"&password="+this.password.value)
+
+.then(r=>r.text())
+
+.then(d=>{
+
+if(d=="success"){
+
+localStorage.setItem("user",this.email.value);
+
+window.location="dashboard.html";
+
+}else{
+
+alert("Wrong login");
+
+}
+
+})
+
+}
+
+</script>
+
+</body>
+</html>

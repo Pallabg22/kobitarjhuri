@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="bn">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Signup</title>
+
+<link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+
+<h2 class="form-title">Sunmit your Poem</h2>
+
+
+
+
+<form id="poem">
+
+<input name="title" placeholder="Title">
+<textarea name="poem" placeholder="Write your poem"></textarea>
+
+<button>Submit</button>
+
+</form>
+
+<script>
+
+document.getElementById("poem").onsubmit=function(e){
+
+e.preventDefault();
+
+fetch("https://script.google.com/macros/s/AKfycbxxg00JCIlS1CJtw7QMfCN8x2MZltkn8SCWYz1gC9-gZmWUsM94mXKefGm0TzvHbbMhTA/exec",{
+method:"POST",
+body:new URLSearchParams({
+action:"submitPoem",
+title:this.title.value,
+poem:this.poem.value,
+author:localStorage.getItem("user")
+})
+})
+
+.then(r=>r.text())
+.then(d=>alert("Poem Submitted"))
+
+}
+
+</script>
+
+<script>
+if(!localStorage.getItem("user")){
+alert("Please login first");
+window.location="login.html";
+}
+</script>

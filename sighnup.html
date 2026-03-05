@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="bn">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Signup</title>
+
+<link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+
+<h2 class="form-title">Signup</h2>
+
+<form id="signup" class="glass-box">
+
+<input name="name" placeholder="Name" required>
+
+<input name="email" type="email" placeholder="Email" required>
+
+<input name="password" type="password" placeholder="Password" minlength="4" required>
+
+<button type="submit">Signup</button>
+
+</form>
+
+<script>
+
+const form = document.getElementById("signup");
+
+form.addEventListener("submit", function(e){
+
+e.preventDefault();
+
+fetch("https://script.google.com/macros/s/AKfycbyC27QB6KcHhZ_yF3zYkpO1F4k6fbqsNR5FaNt2Ag_a128AGIfOqxNTxQXz6_yL2KSQvw/exec",{
+
+method:"POST",
+
+body:new URLSearchParams({
+
+action:"signup",
+name:form.name.value,
+email:form.email.value,
+password:form.password.value
+
+})
+
+})
+
+.then(res=>res.text())
+
+.then(data=>{
+
+if(data.includes("signup")){
+
+alert("Signup successful");
+
+window.location="login.html";
+
+}else{
+
+alert("Signup failed");
+
+}
+
+})
+
+.catch(err=>{
+
+alert("Server error");
+
+console.log(err);
+
+});
+
+});
+
+</script>
+
+</body>
+</html>
