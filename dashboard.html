@@ -4,8 +4,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>Signup</title>
+<title>User Dashboard</title>
 
 <link rel="stylesheet" href="style.css">
 
@@ -13,46 +12,127 @@
 
 <body>
 
-<h2 class="form-title">Sunmit your Poem</h2>
+<h2>User Dashboard</h2>
 
+<p id="welcome"></p>
 
+<button onclick="logout()">Logout</button>
 
+<hr>
+
+<h3>Submit New Poem</h3>
 
 <form id="poem">
 
-<input name="title" placeholder="Title">
-<textarea name="poem" placeholder="Write your poem"></textarea>
+<input name="title" placeholder="Poem Title" required>
 
-<button>Submit</button>
+<textarea name="poem" placeholder="Write your poem" required></textarea>
+
+<button type="submit">Submit Poem</button>
 
 </form>
 
+<hr>
+
+<h3>Your Submitted Poems</h3>
+
+<div id="myPoems"></div>
+
 <script>
+
+var user = localStorage.getItem("user");
+
+if(!user){
+
+alert("Please login first");
+
+window.location="login.html";
+
+}
+
+document.getElementById("welcome").innerHTML="Welcome: "+user;
+
+var url="https://script.google.com/macros/s/AKfycbyC27QB6KcHhZ_yF3zYkpO1F4k6fbqsNR5FaNt2Ag_a128AGIfOqxNTxQXz6_yL2KSQvw/exec";
+
+
+/* SUBMIT POEM */
 
 document.getElementById("poem").onsubmit=function(e){
 
 e.preventDefault();
 
-fetch("https://script.google.com/macros/s/AKfycbxxg00JCIlS1CJtw7QMfCN8x2MZltkn8SCWYz1gC9-gZmWUsM94mXKefGm0TzvHbbMhTA/exec",{
+fetch(url,{
+
 method:"POST",
+
 body:new URLSearchParams({
+
 action:"submitPoem",
 title:this.title.value,
 poem:this.poem.value,
-author:localStorage.getItem("user")
+author:user
+
 })
+
 })
 
 .then(r=>r.text())
-.then(d=>alert("Poem Submitted"))
 
-}
+.then(d=>{
 
-</script>
+alert("Poem submitted");
 
-<script>
-if(!localStorage.getItem("user")){
-alert("Please login first");
+location.reload();
+
+})
+
+};
+
+
+/* LOAD USER POEMS */
+
+fetch(url+"?action=getUserPoems&author="+encodeURIComponent(user))
+
+.then(r=>r.json())
+
+.then(data=>{
+
+var html="";
+
+data.forEach(function(p){
+
+html+=`
+
+<div class="poem-card">
+
+<h4>${p.title}</h4>
+
+<p>${p.poem}</p>
+
+<p>Status: <b>${p.status}</b></p>
+
+<hr>
+
+</div>
+
+`;
+
+});
+
+document.getElementById("myPoems").innerHTML=html;
+
+});
+
+
+function logout(){
+
+localStorage.removeItem("user");
+
 window.location="login.html";
+
 }
+
 </script>
+
+</body>
+</html>

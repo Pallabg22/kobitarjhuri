@@ -16,42 +16,75 @@
 <h2 class="form-title">Login</h2>
 
 <form id="login">
-<input name="email" placeholder="Email" required>
+
+<input name="email" type="email" placeholder="Email" required>
 
 <input name="password" type="password" placeholder="Password" required>
 
-<button>Login</button>
+<button type="submit">Login</button>
 
 </form>
 
-
 <script>
 
-document.getElementById("login").onsubmit=function(e){
+const API = "https://script.google.com/macros/s/AKfycbzgESlvNCQxszlwlJI4z20JFMgqxjV55xqfMz9VCOfjiU_6DAmmRrdjM8AJSmAXK_oRZw/exec";
+
+document.getElementById("login").addEventListener("submit", function(e){
 
 e.preventDefault();
 
-fetch("https://script.google.com/macros/s/AKfycbxxg00JCIlS1CJtw7QMfCN8x2MZltkn8SCWYz1gC9-gZmWUsM94mXKefGm0TzvHbbMhTA/exec?action=login&email="+this.email.value+"&password="+this.password.value)
+const email = this.email.value.trim();
+const password = this.password.value.trim();
 
-.then(r=>r.text())
+/* LOGIN REQUEST */
 
-.then(d=>{
+fetch(API + "?action=login&email=" + encodeURIComponent(email) + "&password=" + encodeURIComponent(password))
 
-if(d=="success"){
+.then(response => response.text())
 
-localStorage.setItem("user",this.email.value);
+.then(data => {
 
-window.location="dashboard.html";
+if(data.trim() === "success"){
 
-}else{
+/* SAVE LOGIN USER */
 
-alert("Wrong login");
+localStorage.setItem("user", email);
+
+/* ADMIN CHECK */
+
+if(email === "pallabguchhait03@gmail.com"){
+
+window.location.href = "admin.html";
+
+}
+
+/* NORMAL USER */
+
+else{
+
+window.location.href = "dashboard.html";
+
+}
+
+}
+
+else{
+
+alert("Wrong email or password");
 
 }
 
 })
 
-}
+.catch(error => {
+
+console.error(error);
+
+alert("Server connection error");
+
+});
+
+});
 
 </script>
 

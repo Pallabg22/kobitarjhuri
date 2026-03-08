@@ -1212,3 +1212,165 @@ transition:0.3s;
 background:#e63946;
 
 }
+/* GOOGLE FONT */
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap');
+
+/* RESET */
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Poppins',sans-serif;
+}
+
+/* BODY */
+
+body{
+background:linear-gradient(135deg,#667eea,#764ba2);
+min-height:100vh;
+padding:40px 15px;
+}
+
+/* MAIN TITLE */
+
+h2{
+text-align:center;
+color:white;
+margin-bottom:10px;
+font-weight:600;
+letter-spacing:1px;
+}
+
+/* WELCOME TEXT */
+
+#welcome{
+text-align:center;
+color:#f1f1f1;
+font-size:18px;
+margin-bottom:15px;
+}
+
+/* LOGOUT BUTTON */
+
+button{
+background:#ff4d4d;
+border:none;
+color:white;
+padding:10px 18px;
+border-radius:6px;
+cursor:pointer;
+font-size:14px;
+transition:0.3s;
+}
+
+button:hover
+
+button[onclick="logout()"]{
+display:block;
+margin:0 auto 25px auto;
+}
+
+/* SECTION TITLE */
+
+h3{
+text-align:center;
+color:white;
+margin:30px 0 15px 0;
+font-weight:500;
+}
+
+/* FORM CARD */
+
+form{
+max-width:500px;
+margin:auto;
+background:white;
+padding:25px;
+border-radius:12px;
+box-shadow:0 8px 25px rgba(0,0,0,0.2);
+}
+
+/* INPUT FIELD */
+
+input,textarea{
+width:100%;
+padding:12px;
+margin-top:12px;
+border-radius:6px;
+border:1px solid #ccc;
+font-size:15px;
+outline:none;
+transition:0.3s;
+}
+
+/* INPUT FOCUS */
+
+input:focus,textarea:focus{
+border-color:#667eea;
+box-shadow:0 0 5px rgba(102,126,234,0.5);
+}
+
+/* TEXTAREA */
+
+textarea{
+height:130px;
+resize:none;
+}
+
+/* SUBMIT BUTTON */
+
+form button{
+width:100%;
+margin-top:15px;
+background:#667eea;
+}
+
+form button:hover
+
+/* POEM LIST */
+
+#myPoems{
+max-width:750px;
+margin:30px auto;
+}
+
+/* POEM CARD */
+
+.poem-card{
+background:white;
+border-radius:12px;
+padding:20px;
+margin-bottom:20px;
+box-shadow:0 6px 20px rgba(0,0,0,0.15);
+transition:0.3s;
+}
+
+/* CARD HOVER */
+
+.poem-card:hover{
+transform:translateY(-5px);
+box-shadow:0 12px 30px rgba(0,0,0,0.2);
+}
+
+/* TITLE */
+
+.poem-card h4{
+color:#667eea;
+margin-bottom:10px;
+}
+
+/* POEM TEXT */
+
+.poem-card p{
+color:#444;
+line-height:1.6;
+margin-bottom:8px;
+}
+
+/* STATUS */
+
+.poem-card b{
+color:#ff9800;
+}
