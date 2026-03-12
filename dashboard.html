@@ -5,9 +5,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>User Dashboard</title>
-
 <link rel="stylesheet" href="style.css">
-
 </head>
 
 <body>
@@ -22,7 +20,7 @@
 
 <h3>Submit New Poem</h3>
 
-<form id="poem">
+<form id="poemForm">
 
 <input name="title" placeholder="Poem Title" required>
 
@@ -34,67 +32,95 @@
 
 <hr>
 
-<h3>Your Submitted Poems</h3>
+<h3>Submit Story / Novel</h3>
 
+<form id="storyForm">
+
+<input name="title" placeholder="Story / Novel Title" required>
+
+<textarea name="story" placeholder="Write your story or novel" required></textarea>
+
+<button type="submit">Submit Writing</button>
+
+</form>
+
+<hr>
+
+<h3>Your Submitted Poems</h3>
 <div id="myPoems"></div>
+
+<h3>Your Submitted Stories</h3>
+<div id="myStories"></div>
 
 <script>
 
 var user = localStorage.getItem("user");
 
 if(!user){
-
 alert("Please login first");
-
 window.location="login.html";
-
 }
 
 document.getElementById("welcome").innerHTML="Welcome: "+user;
 
-var url="https://script.google.com/macros/s/AKfycbyC27QB6KcHhZ_yF3zYkpO1F4k6fbqsNR5FaNt2Ag_a128AGIfOqxNTxQXz6_yL2KSQvw/exec";
-
+var url="https://script.google.com/macros/s/AKfycbzIIeoV0cWS9oocplHqdz5xeylFuqe9x2qCc-wnm9Xv4CpwStA8g7A4mDFhyC_UJoc0CQ/exec";
 
 /* SUBMIT POEM */
 
-document.getElementById("poem").onsubmit=function(e){
+document.getElementById("poemForm").onsubmit=function(e){
 
 e.preventDefault();
 
+var form=new FormData(this);
+
 fetch(url,{
-
 method:"POST",
-
 body:new URLSearchParams({
-
 action:"submitPoem",
-title:this.title.value,
-poem:this.poem.value,
+title:form.get("title"),
+poem:form.get("poem"),
 author:user
-
 })
-
 })
-
 .then(r=>r.text())
-
 .then(d=>{
-
-alert("Poem submitted");
-
-location.reload();
-
-})
+alert("Poem submitted successfully");
+loadPoems();
+});
 
 };
 
+/* SUBMIT STORY */
 
-/* LOAD USER POEMS */
+document.getElementById("storyForm").onsubmit=function(e){
+
+e.preventDefault();
+
+var form=new FormData(this);
+
+fetch(url,{
+method:"POST",
+body:new URLSearchParams({
+action:"submitStory",
+title:form.get("title"),
+story:form.get("story"),
+author:user
+})
+})
+.then(r=>r.text())
+.then(d=>{
+alert("Story submitted successfully");
+loadStories();
+});
+
+};
+
+/* LOAD POEMS */
+
+function loadPoems(){
 
 fetch(url+"?action=getUserPoems&author="+encodeURIComponent(user))
-
 .then(r=>r.json())
-
 .then(data=>{
 
 var html="";
@@ -102,19 +128,12 @@ var html="";
 data.forEach(function(p){
 
 html+=`
-
 <div class="poem-card">
-
 <h4>${p.title}</h4>
-
 <p>${p.poem}</p>
-
 <p>Status: <b>${p.status}</b></p>
-
 <hr>
-
 </div>
-
 `;
 
 });
@@ -123,14 +142,48 @@ document.getElementById("myPoems").innerHTML=html;
 
 });
 
+}
 
-function logout(){
+/* LOAD STORIES */
 
-localStorage.removeItem("user");
+function loadStories(){
 
-window.location="login.html";
+fetch(url+"?action=getUserStories&author="+encodeURIComponent(user))
+.then(r=>r.json())
+.then(data=>{
+
+var html="";
+
+data.forEach(function(s){
+
+html+=`
+<div class="poem-card">
+<h4>${s.title}</h4>
+<p>${s.story}</p>
+<p>Status: <b>${s.status}</b></p>
+<hr>
+</div>
+`;
+
+});
+
+document.getElementById("myStories").innerHTML=html;
+
+});
 
 }
+
+/* LOGOUT */
+
+function logout(){
+localStorage.removeItem("user");
+window.location="login.html";
+}
+
+/* LOAD DATA ON PAGE OPEN */
+
+loadPoems();
+loadStories();
 
 </script>
 

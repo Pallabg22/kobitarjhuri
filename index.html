@@ -36,7 +36,7 @@
   <a href="index.html">হোম</a>
   <a href="certificate.html">সার্টিফিকেট ডাউনলোড করুন</a>
   <a href="onlineeventsandcompitition.html">অনলাইন প্রতিযোগিতা</a>
-  <a href="submit.html">লেখা পাঠান</a>
+  <a href=""></a>
   <a href="about.html">আমাদের কথা</a>
   <a href="contact.html">যোগাযোগ</a>
 </nav>
@@ -44,7 +44,11 @@
   <div class="hero-content">
     <h1>স্বাগতম কবিতার ঝুড়ি সাহিত্য পত্রিকায়</h1>
     <p>কবিতা, গল্প ও সাহিত্যের এক সুন্দর ঠিকানা</p>
-    <a href="Add a little bit of body text.jpg"></a>
+
+    <a href="submit.html" class="write-btn" id="writeBtn">
+      ✍️ লেখা দিন
+    </a>
+
   </div>
 </section>
 <!-- 🔥 FLOATING NOTICE -->
@@ -77,11 +81,19 @@
 
 <section class="Upcoming">
   <h2>Upcoming Events</h2>
-  <ul>
-    <li></li>
-    <li></li>
-  </ul>
+
+  <div class="event">
+    <span class="event-date">21 Mar</span>
+    <p>বিশ্ব কবিতা দিবস</p>
+  </div>
+
+  <div class="event">
+    <span class="event-date">10 Apr</span>
+    <p>ফ্লিম ফেস্টিভ্যাল</p>
+  </div>
+
 </section>
+
 
 <section class="Published">
 
@@ -148,7 +160,7 @@
       <ul>
         <li><a href="index.html">হোম</a></li>
         <li><a href="certificate.html">সার্টিফিকেট ডাউনলোড করুন</a></li>
-        <li><a href="submit.html">লেখা পাঠান</a></li>
+        <li><a href=""></a></li>
         <li><a href="about.html">আমাদের কথা</a></li>
         <li><a href="contact.html">যোগাযোগ</a></li>
       </ul>
@@ -206,6 +218,11 @@ function nextNotice(){ showNotice(currentNotice+1); }
 function prevNotice(){ showNotice(currentNotice-1); }
 
 
+</script>
+<script>
+if(localStorage.getItem("userLoggedIn") !== "true"){
+  document.getElementById("writeBtn").style.display="none";
+}
 </script>
 
 </body>
