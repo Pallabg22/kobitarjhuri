@@ -1,72 +1,108 @@
 <h2>Admin Panel</h2>
 
-<div id="poems"></div>
+<div class="admin-toolbar">
+  <button onclick="loadPending()">Pending</button>
+  <button onclick="loadApproved()">Approved</button>
+</div>
+
+<div id="poems">Loading...</div>
 
 <script>
 
 /* LOGIN CHECK */
-
 var user = localStorage.getItem("user");
 
 if(!user){
-alert("Please login first");
-window.location="login.html";
-throw new Error("Not logged in");
+  alert("Please login first");
+  window.location="login.html";
 }
 
 /* ADMIN CHECK */
-
 if(user !== "pallabguchhait03@gmail.com"){
-alert("Admin only");
-window.location="index.html";
-throw new Error("Not admin");
+  alert("Admin only");
+  window.location="index.html";
 }
 
 /* API */
-
 var API="https://script.google.com/macros/s/AKfycbzIIeoV0cWS9oocplHqdz5xeylFuqe9x2qCc-wnm9Xv4CpwStA8g7A4mDFhyC_UJoc0CQ/exec";
 
 
-function load(){
+/* LOAD PENDING */
+
+function loadPending(){
 
 fetch(API+"?action=getPending")
 
 .then(r=>r.json())
 
-.then(data=>{
+.then(data=>renderCards(data,true))
+
+.catch(err=>{
+document.getElementById("poems").innerHTML="Error loading data";
+console.error(err);
+});
+
+}
+
+
+/* LOAD APPROVED */
+
+function loadApproved(){
+
+fetch(API+"?action=getPoems")
+
+.then(r=>r.json())
+
+.then(data=>renderCards(data,false))
+
+.catch(err=>{
+document.getElementById("poems").innerHTML="Error loading data";
+console.error(err);
+});
+
+}
+
+
+/* CARD RENDER */
+
+function renderCards(data,isPending){
 
 var html="";
 
-if(data.length===0){
-html="<p>No pending poems</p>";
+if(!data || data.length===0){
+html="<p class='no-data'>No data found</p>";
 }
 
 data.forEach(function(p){
 
 html+=`
+<div class="admin-card">
 
 <h3>${p.title}</h3>
 
-<p>${p.poem}</p>
+<p class="poem-text">${p.poem}</p>
 
-<p><b>${p.author}</b></p>
+<p class="author">Author: ${p.author}</p>
 
-<button onclick="approve('${p.id}')">Approve</button>
+<div class="actions">
 
-<hr>
+${isPending ? `<button class="approve" onclick="approve('${p.id}')">Approve</button>` : ""}
 
+<button class="delete" onclick="removePoem('${p.id}')">Delete</button>
+
+</div>
+
+</div>
 `;
 
 });
 
 document.getElementById("poems").innerHTML=html;
 
-});
-
 }
 
-load();
 
+/* APPROVE */
 
 function approve(id){
 
@@ -74,14 +110,34 @@ fetch(API+"?action=approve&id="+id)
 
 .then(r=>r.text())
 
-.then(d=>{
-
-alert("Poem Approved");
-
-load();
-
+.then(()=>{
+alert("Approved");
+loadPending();
 });
 
 }
+
+
+/* DELETE */
+
+function removePoem(id){
+
+if(!confirm("Delete this poem?")) return;
+
+fetch(API+"?action=delete&id="+id)
+
+.then(r=>r.text())
+
+.then(()=>{
+alert("Deleted");
+loadPending();
+});
+
+}
+
+
+/* INITIAL LOAD */
+
+loadPending();
 
 </script>
