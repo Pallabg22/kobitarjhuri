@@ -75,14 +75,17 @@ html="<p class='no-data'>No data found</p>";
 
 data.forEach(function(p){
 
+// poetry line break fix
+var poemText = p.poem.replace(/\n/g,"<br>");
+
 html+=`
 <div class="admin-card">
 
 <h3>${p.title}</h3>
 
-<p class="poem-text">${p.poem}</p>
+<p class="poem-text">${poemText}</p>
 
-<p class="author">Author: ${p.author}</p>
+<p class="author"><b>Author:</b> ${p.author}</p>
 
 <div class="actions">
 
@@ -111,7 +114,7 @@ fetch(API+"?action=approve&id="+id)
 .then(r=>r.text())
 
 .then(()=>{
-alert("Approved");
+alert("Poem Approved");
 loadPending();
 });
 
@@ -129,7 +132,7 @@ fetch(API+"?action=delete&id="+id)
 .then(r=>r.text())
 
 .then(()=>{
-alert("Deleted");
+alert("Poem Deleted");
 loadPending();
 });
 

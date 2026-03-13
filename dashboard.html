@@ -47,10 +47,10 @@
 <hr>
 
 <h3>Your Submitted Poems</h3>
-<div id="myPoems"></div>
+<div id="myPoems">Loading...</div>
 
 <h3>Your Submitted Stories</h3>
-<div id="myStories"></div>
+<div id="myStories">Loading...</div>
 
 <script>
 
@@ -83,12 +83,14 @@ author:user
 })
 })
 .then(r=>r.text())
-.then(d=>{
+.then(()=>{
 alert("Poem submitted successfully");
+this.reset();
 loadPoems();
 });
 
 };
+
 
 /* SUBMIT STORY */
 
@@ -108,31 +110,44 @@ author:user
 })
 })
 .then(r=>r.text())
-.then(d=>{
+.then(()=>{
 alert("Story submitted successfully");
+this.reset();
 loadStories();
 });
 
 };
+
 
 /* LOAD POEMS */
 
 function loadPoems(){
 
 fetch(url+"?action=getUserPoems&author="+encodeURIComponent(user))
+
 .then(r=>r.json())
+
 .then(data=>{
 
 var html="";
 
+if(!data || data.length===0){
+html="<p>No poems submitted yet.</p>";
+}
+
 data.forEach(function(p){
+
+var poemText = p.poem.replace(/\n/g,"<br>");
 
 html+=`
 <div class="poem-card">
+
 <h4>${p.title}</h4>
-<p>${p.poem}</p>
+
+<p class="poem-text">${poemText}</p>
+
 <p>Status: <b>${p.status}</b></p>
-<hr>
+
 </div>
 `;
 
@@ -140,28 +155,44 @@ html+=`
 
 document.getElementById("myPoems").innerHTML=html;
 
+})
+
+.catch(()=>{
+document.getElementById("myPoems").innerHTML="Error loading poems";
 });
 
 }
+
 
 /* LOAD STORIES */
 
 function loadStories(){
 
 fetch(url+"?action=getUserStories&author="+encodeURIComponent(user))
+
 .then(r=>r.json())
+
 .then(data=>{
 
 var html="";
 
+if(!data || data.length===0){
+html="<p>No stories submitted yet.</p>";
+}
+
 data.forEach(function(s){
+
+var storyText = s.story.replace(/\n/g,"<br>");
 
 html+=`
 <div class="poem-card">
+
 <h4>${s.title}</h4>
-<p>${s.story}</p>
+
+<p class="poem-text">${storyText}</p>
+
 <p>Status: <b>${s.status}</b></p>
-<hr>
+
 </div>
 `;
 
@@ -169,9 +200,14 @@ html+=`
 
 document.getElementById("myStories").innerHTML=html;
 
+})
+
+.catch(()=>{
+document.getElementById("myStories").innerHTML="Error loading stories";
 });
 
 }
+
 
 /* LOGOUT */
 
@@ -179,6 +215,7 @@ function logout(){
 localStorage.removeItem("user");
 window.location="login.html";
 }
+
 
 /* LOAD DATA ON PAGE OPEN */
 
