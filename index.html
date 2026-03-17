@@ -36,13 +36,21 @@
   <a href="index.html">হোম</a>
   <a href="certificate.html">সার্টিফিকেট ডাউনলোড করুন</a>
   <a href="onlineeventsandcompitition.html">অনলাইন প্রতিযোগিতা</a>
-  <a href=""></a>
+  <a href="poems.html">কবিতা</a>
   <a href="about.html">আমাদের কথা</a>
   <a href="contact.html">যোগাযোগ</a>
 </nav>
+<section class="Announcement">
+<div class="container">
+<h2>Important Announcement</h2>
+<p class="typing-text">For publishing your poem/stories on our website please log in first.</p>
+</div>
+</section>
+</section>
+</section>
 <section class="hero">
   <div class="hero-content">
-    <h1>স্বাগতম কবিতার ঝুড়ি সাহিত্য পত্রিকায়</h1>
+    <h1>স্বাগতম কবিতার ঝুড়ি সাহিত্য পত্রিকা</h1>
     <p>কবিতা, গল্প ও সাহিত্যের এক সুন্দর ঠিকানা</p>
 
     <a href="submit.html" class="write-btn" id="writeBtn">
@@ -63,6 +71,53 @@
 <div class="notice-spacer"></div>
 
 
+<section class="latest">
+
+<h2>সাম্প্রতিক লেখা</h2>
+
+<div id="latestPosts">Loading...</div>
+
+</section>
+
+<script>
+
+var API="https://script.google.com/macros/s/AKfycby_DiBVclgMtxCUu_QdvSy6ySRPh-Zgnoryp6_mUSM8lMU8OpkrlqbCTHaw3usCOzSJZw/exec";
+
+fetch(API+"?action=getPoems")
+
+.then(r=>r.json())
+
+.then(data=>{
+
+var html="";
+
+data.slice(0,5).forEach(function(p){
+
+var preview=p.poem.substring(0,150).replace(/\n/g,"<br>");
+
+html+=`
+
+<div class="post-card">
+
+<h3>${p.title}</h3>
+
+<p>${preview}...</p>
+
+<p class="author">— ${p.author}</p>
+
+<a class="read-btn" href="poem.html?id=${p.id}">Read More</a>
+
+</div>
+
+`;
+
+});
+
+document.getElementById("latestPosts").innerHTML=html;
+
+});
+
+</script>
 
 <section class="instant-poetry">
   <h2>তাৎক্ষনিক কবিতার আসর</h2>
@@ -145,7 +200,6 @@
 <footer class="mag-footer">
 
   <div class="footer-grid">
-<img src="https://visitor-badge.laobi.icu/badge?page_id=kobitarjhuri">
 
     <div class="footer-about">
       <h3>কবিতার ঝুড়ি সাহিত্য পত্রিকা</h3>
@@ -160,7 +214,7 @@
       <ul>
         <li><a href="index.html">হোম</a></li>
         <li><a href="certificate.html">সার্টিফিকেট ডাউনলোড করুন</a></li>
-        <li><a href=""></a></li>
+        <li><a href="poems.html">কবিতা</a></li>
         <li><a href="about.html">আমাদের কথা</a></li>
         <li><a href="contact.html">যোগাযোগ</a></li>
       </ul>
