@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="bn">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Author</title>
+
+<style>
+
+
+body{
+font-family:'Noto Serif Bengali', serif;
+background:#f4f6fb;
+margin:0;
+padding:40px 20px;
+}
+
+/* main container */
+
+.author-container{
+max-width:750px;
+margin:auto;
+}
+
+/* title */
+
+h2{
+text-align:center;
+margin-bottom:30px;
+color:#2c3e50;
+}
+
+/* poem cards */
+
+.poem-card{
+background:white;
+padding:25px;
+margin-bottom:25px;
+border-radius:12px;
+box-shadow:0 6px 18px rgba(0,0,0,0.1);
+transition:0.3s;
+}
+
+.poem-card:hover{
+transform:translateY(-4px);
+box-shadow:0 10px 25px rgba(0,0,0,0.15);
+}
+
+.poem-card h3{
+margin-top:0;
+color:#34495e;
+}
+
+.poem-card p{
+line-height:1.8;
+color:#444;
+}
+
+/* read more button */
+
+.read-btn{
+display:inline-block;
+margin-top:12px;
+padding:7px 14px;
+background:#4f6edb;
+color:white;
+text-decoration:none;
+border-radius:6px;
+font-size:14px;
+}
+
+.read-btn:hover{
+background:#354bb5;
+}
+
+/* back button */
+
+.back{
+display:inline-block;
+margin-top:25px;
+padding:8px 16px;
+background:#333;
+color:white;
+text-decoration:none;
+border-radius:6px;
+}
+
+.back:hover{
+background:#000;
+}
+
+/* share section */
+
+.share{
+margin-top:30px;
+text-align:center;
+}
+
+.share a{
+display:inline-block;
+margin:5px;
+padding:8px 14px;
+background:#4f6edb;
+color:white;
+text-decoration:none;
+border-radius:6px;
+font-size:14px;
+}
+
+.share a:hover{
+background:#354bb5;
+}
+
+</style>
+
+</style>
+<link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+
+<div class="author-container">
+
+<h2 id="authorName">Loading...</h2>
+
+<div id="poems">Loading writings...</div>
+
+<a class="back" href="index.html">← Back to Home</a>
+
+</div>
+<div class="share">
+
+<a id="fbShare" target="_blank">Facebook Share</a>
+
+<a id="waShare" target="_blank">WhatsApp Share</a>
+</div>
+<script>
+
+var API="https://script.google.com/macros/s/AKfycby_DiBVclgMtxCUu_QdvSy6ySRPh-Zgnoryp6_mUSM8lMU8OpkrlqbCTHaw3usCOzSJZw/exec";
+
+/* URL থেকে author name নেওয়া */
+
+var params=new URLSearchParams(window.location.search);
+
+var author=params.get("name");
+
+/* Author title */
+
+document.getElementById("authorName").innerText="লেখক: "+author;
+
+/* কবিতা load করা */
+
+fetch(API+"?action=getPoems")
+
+.then(function(r){
+return r.json();
+})
+
+.then(function(data){
+
+var html="";
+var found=false;
+
+data.forEach(function(p){
+
+if(p.author==author){
+
+found=true;
+
+var text=p.poem.substring(0,200).replace(/\n/g,"<br>");
+
+html+=`
+
+<div class="poem-card">
+
+<h3>${p.title}</h3>
+
+<p>${text}...</p>
+
+<a class="read-btn" href="poem.html?id=${p.id}">Read More</a>
+
+</div>
+
+`;
+
+}
+
+});
+
+if(!found){
+html="<p style='text-align:center'>এই লেখকের কোনো লেখা পাওয়া যায়নি</p>";
+}
+
+document.getElementById("poems").innerHTML=html;
+
+})
+
+.catch(function(err){
+
+document.getElementById("poems").innerHTML="Error loading writings";
+
+console.log(err);
+
+});
+
+/* Share buttons */
+
+var pageURL = window.location.href;
+
+document.getElementById("fbShare").href =
+"https://www.facebook.com/sharer/sharer.php?u=" + encodeURIComponent(pageURL);
+
+document.getElementById("waShare").href =
+"https://wa.me/?text=" + encodeURIComponent(pageURL);
+</script>
+</body>
+
+</html>

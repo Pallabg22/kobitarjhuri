@@ -2116,3 +2116,188 @@ border-radius:10px;
 margin-bottom:20px;
 box-shadow:0 5px 15px rgba(0,0,0,0.1);
 }
+
+.Announcement{
+    background:#ff4444;
+    color:white;
+    padding:25px;
+    text-align:center;
+    border-radius:8px;
+    margin:30px auto;
+    width:80%;
+}
+
+.Announcement h2{
+    font-size:28px;
+    margin-bottom:10px;
+}
+
+/* Typing Animation */
+.typing-text{
+    font-size:18px;
+    width:0;
+    overflow:hidden;
+    white-space:nowrap;
+    border-right:3px solid white;
+    animation: typing 5s steps(60,end) forwards, blinkCursor 0.7s infinite;
+}
+
+/* typing effect */
+@keyframes typing{
+    from{
+        width:0;
+    }
+    to{
+        width:100%;
+    }
+}
+
+/* cursor blink */
+@keyframes blinkCursor{
+    0%{border-color:white;}
+    50%{border-color:transparent;}
+    100%{border-color:white;}
+}
+
+.latest{
+padding:40px 20px;
+background:#7972db;
+}
+
+.latest h2{
+text-align:center;
+margin-bottom:30px;
+}
+
+.post-card{
+background:rgb(205, 208, 233);
+max-width:700px;
+margin:20px auto;
+padding:20px;
+border-radius:10px;
+box-shadow:0 5px 15px rgba(0,0,0,0.1);
+}
+
+.post-card h3{
+margin-top:0;
+}
+
+.author{
+color:#666;
+margin-top:10px;
+}
+
+.share{
+margin-top:20px;
+}
+
+.share a{
+display:inline-block;
+margin-right:10px;
+padding:6px 12px;
+background:#4f6edb;
+color:white;
+text-decoration:none;
+border-radius:5px;
+}
+
+.share a:hover{
+background:#354bb5;
+}
+
+.share{
+margin-top:20px;
+}
+
+.share a{
+display:inline-block;
+margin-right:10px;
+padding:6px 12px;
+background:#4f6edb;
+color:white;
+text-decoration:none;
+border-radius:5px;
+}
+
+.share a:hover{
+background:#354bb5;
+}
+
+
+body{
+font-family:'Noto Serif Bengali', serif;
+background:#0c47df;
+margin:0;
+padding:30px;
+}
+
+/* page title */
+
+h2{
+text-align:center;
+margin-bottom:30px;
+font-size:32px;
+color:#333;
+}
+
+/* poems container */
+
+#poems{
+max-width:800px;
+margin:auto;
+}
+
+/* poem card */
+
+.poem-card{
+background:white;
+padding:25px;
+margin-bottom:25px;
+border-radius:12px;
+box-shadow:0 6px 18px rgba(0,0,0,0.1);
+transition:0.3s;
+}
+
+.poem-card:hover{
+transform:translateY(-4px);
+box-shadow:0 10px 25px rgba(0,0,0,0.15);
+}
+
+/* title */
+
+.poem-card h3{
+margin-top:0;
+color:#2b3a67;
+}
+
+/* poem preview */
+
+.poem-card p{
+line-height:1.8;
+font-size:16px;
+}
+
+/* author */
+
+.poem-card p:last-of-type{
+color:#777;
+font-style:italic;
+margin-top:10px;
+}
+
+/* read more button */
+
+.poem-card a{
+display:inline-block;
+margin-top:10px;
+padding:6px 14px;
+background:#4f6edb;
+color:white;
+text-decoration:none;
+border-radius:6px;
+font-size:14px;
+}
+
+.poem-card a:hover{
+background:#354bb5;
+}

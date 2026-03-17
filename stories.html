@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="bn">
+
+<head>
+<meta charset="UTF-8">
+<title>গল্প</title>
+
+<style>
+
+body{
+font-family:'Noto Serif Bengali', serif;
+background:#f4f6fb;
+padding:20px;
+}
+
+.story-card{
+background:white;
+padding:20px;
+margin:20px auto;
+max-width:700px;
+border-radius:10px;
+box-shadow:0 5px 15px rgba(0,0,0,0.1);
+}
+
+</style>
+
+</head>
+
+<body>
+
+<h2>গল্প</h2>
+
+<div id="stories">Loading...</div>
+
+<script>
+
+var API="https://script.google.com/macros/s/AKfycby_DiBVclgMtxCUu_QdvSy6ySRPh-Zgnoryp6_mUSM8lMU8OpkrlqbCTHaw3usCOzSJZw/exec";
+
+fetch(API+"?action=getStories")
+
+.then(r=>r.json())
+
+.then(data=>{
+
+var html="";
+
+data.forEach(function(s){
+
+var storyText=s.story.replace(/\n/g,"<br>");
+
+html+=`
+
+<div class="story-card">
+
+<h3>${s.title}</h3>
+
+<p>${storyText}</p>
+
+<p>— ${s.author}</p>
+
+</div>
+
+`;
+
+});
+
+document.getElementById("stories").innerHTML=html;
+
+});
+
+</script>
+
+</body>
+
+</html>

@@ -1,0 +1,44 @@
+<link rel="stylesheet" href="style.css">
+<h2>সব কবিতা</h2>
+
+<div id="poems"></div>
+
+<script>
+
+var API="https://script.google.com/macros/s/AKfycby_DiBVclgMtxCUu_QdvSy6ySRPh-Zgnoryp6_mUSM8lMU8OpkrlqbCTHaw3usCOzSJZw/exec";
+
+fetch(API+"?action=getPoems")
+
+.then(r=>r.json())
+
+.then(data=>{
+
+var html="";
+
+data.forEach(function(p){
+
+var text=p.poem.substring(0,200).replace(/\n/g,"<br>");
+
+html+=`
+
+<div class="poem-card">
+
+<h3>${p.title}</h3>
+
+<p>${text}...</p>
+
+<p>— ${p.author}</p>
+
+<a href="poem.html?id=${p.id}">Read More</a>
+
+</div>
+
+`;
+
+});
+
+document.getElementById("poems").innerHTML=html;
+
+});
+
+</script>

@@ -1,0 +1,162 @@
+<link rel="stylesheet" href="style.css">
+<style>
+
+body{
+font-family:'Noto Serif Bengali', serif;
+background:#2b4587;
+margin:0;
+padding:40px 20px;
+}
+
+/* container */
+
+.poem-wrapper{
+max-width:700px;
+margin:auto;
+background:white;
+padding:30px;
+border-radius:12px;
+box-shadow:0 8px 20px rgba(0,0,0,0.1);
+}
+
+/* title */
+
+#title{
+margin-top:0;
+font-size:30px;
+color:#2c3e50;
+}
+
+/* poem text */
+
+#poem{
+margin-top:20px;
+line-height:1.9;
+font-size:17px;
+color:#333;
+}
+
+/* author */
+
+#author{
+margin-top:20px;
+font-style:italic;
+color:#666;
+}
+
+#author a{
+text-decoration:none;
+color:#4f6edb;
+}
+
+/* share buttons */
+
+.share{
+margin-top:20px;
+}
+
+.share a{
+display:inline-block;
+margin-right:10px;
+padding:7px 14px;
+background:#4f6edb;
+color:white;
+text-decoration:none;
+border-radius:6px;
+font-size:14px;
+}
+
+.share a:hover{
+background:#354bb5;
+}
+
+/* back button */
+
+.back-btn{
+display:inline-block;
+margin-top:25px;
+padding:8px 16px;
+background:#333;
+color:white;
+text-decoration:none;
+border-radius:6px;
+}
+
+.back-btn:hover{
+background:#000;
+}
+
+</style>
+
+<div class="poem-wrapper">
+
+<h2 id="title">Loading...</h2>
+
+<p id="poem"></p>
+
+<p id="author"></p>
+
+<div class="share">
+<a id="fbShare" target="_blank">Facebook Share</a>
+<a id="waShare" target="_blank">WhatsApp Share</a>
+</div>
+
+<a class="back-btn" href="index.html">← Back to Home</a>
+
+</div>
+
+<script>
+
+var API="https://script.google.com/macros/s/AKfycby_DiBVclgMtxCUu_QdvSy6ySRPh-Zgnoryp6_mUSM8lMU8OpkrlqbCTHaw3usCOzSJZw/exec";
+
+var params=new URLSearchParams(window.location.search);
+var id=params.get("id");
+
+fetch(API+"?action=getPoems")
+
+.then(function(r){
+return r.json();
+})
+
+.then(function(data){
+
+var found=false;
+
+data.forEach(function(p){
+
+if(String(p.id)===String(id)){
+
+found=true;
+
+document.getElementById("title").innerText=p.title;
+
+document.getElementById("poem").innerHTML=p.poem.replace(/\n/g,"<br>");
+
+document.getElementById("author").innerHTML=
+'— <a href="author.html?name='+encodeURIComponent(p.author)+'">'+p.author+'</a>';
+
+}
+
+});
+
+if(!found){
+document.getElementById("title").innerText="কবিতা পাওয়া যায়নি";
+}
+
+})
+
+.catch(function(err){
+console.log(err);
+});
+
+/* Share buttons */
+
+var pageURL=window.location.href;
+
+document.getElementById("fbShare").href=
+"https://www.facebook.com/sharer/sharer.php?u="+encodeURIComponent(pageURL);
+
+document.getElementById("waShare").href=
+"https://wa.me/?text="+encodeURIComponent(pageURL);
+
+</script>
