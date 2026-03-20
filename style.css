@@ -2301,40 +2301,6 @@ font-size:14px;
 .poem-card a:hover{
 background:#354bb5;
 }
-
-
-/* ===== PAGE BACKGROUND ===== */
-body {
-  margin: 0;
-  font-family: 'Noto Serif Bengali', serif;
-  background: url("d281936d-efc3-43b4-986b-0c555f7d8db2.jpg") no-repeat center center fixed;
-  background-size: cover;
-  position: relative;
-}
-
-/* dark overlay for readability */
-body::before {
-  content: "";
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(20, 20, 20, 0.6);
-  z-index: -1;
-}
-
-/* ===== TITLE ===== */
-h2 {
-  text-align: center;
-  color: #fff;
-  font-size: 32px;
-  margin-top: 20px;
-  letter-spacing: 2px;
-}
-
-
-
  body {
   margin: 0;
   font-family: 'Noto Serif Bengali', serif;
