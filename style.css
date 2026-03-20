@@ -2333,75 +2333,8 @@ h2 {
   letter-spacing: 2px;
 }
 
-/* ===== POEM CONTAINER ===== */
-#poems {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 20px;
-  padding: 30px;
-}
 
-/* ===== POEM CARD ===== */
-.poem-card {
-  background: rgba(255, 255, 255, 0.9);
-  
-  padding: 20px;
-  border-radius: 12px;
-  box-shadow: 0 8px 20px rgba(0,0,0,0.3);
-  transition: 0.3s;
-  position: relative;
-  overflow: hidden;
-}
 
-/* subtle paper texture effect */
-.poem-card::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: url("d281936d-efc3-43b4-986b-0c555f7d8db2.jpg");
-  opacity: 0.08;
-  background-size: cover;
-}
-
-/* hover effect */
-.poem-card:hover {
-  transform: translateY(-8px) scale(1.02);
-}
-
-/* ===== TEXT STYLING ===== */
-.poem-card h3 {
-  margin-top: 0;
-  color: #222;
-}
-
-.poem-card p {
-  color: #333;
-  line-height: 1.6;
-  font-size: 15px;
-}
-
-/* author */
-.poem-card p:last-of-type {
-  margin-top: 10px;
-  font-style: italic;
-  color: #555;
-}
-
-/* ===== READ MORE BUTTON ===== */
-.poem-card a {
-  display: inline-block;
-  margin-top: 12px;
-  text-decoration: none;
-  background: #111;
-  color: #fff;
-  padding: 8px 14px;
-  border-radius: 6px;
-  transition: 0.3s;
-}
-
-.poem-card a:hover {
-  background: #e63946;
-}
  body {
   margin: 0;
   font-family: 'Noto Serif Bengali', serif;
