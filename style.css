@@ -2589,3 +2589,40 @@ body {
     font-size: 24px;
   }
 }
+
+
+
+/* ===== LINK CARD ===== */
+.gird a {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: #fff;
+  padding: 14px;
+  border-radius: 10px;
+  text-decoration: none;
+  color: #111;
+  font-size: 14px;
+  line-height: 1.5;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+  transition: all 0.3s ease;
+}
+
+/* SVG icon wrapper */
+.yt-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* hover */
+.gird a:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 25px rgba(0,0,0,0.4);
+  background: #fff5f5;
+}
+
+/* icon animation */
+.gird a:hover .yt-icon {
+  transform: scale(1.1);
+}
