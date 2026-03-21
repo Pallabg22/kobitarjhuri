@@ -2321,3 +2321,271 @@ body::before {
   background: rgba(0,0,0,0.5);
   z-index: -1;
 }
+
+
+
+/* ===== PAGE BACKGROUND ===== */
+body {
+  margin: 0;
+  font-family: 'Noto Serif Bengali', serif;
+  background: url("cf2ef00afd07d3b4267129f732ccf9ee.jpg") no-repeat center center fixed;
+  background-size: cover;
+  position: relative;
+}
+
+/* overlay for readability */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background: rgba(15, 15, 15, 0.65);
+  z-index: -1;
+}
+
+/* ===== TITLE ===== */
+h2 {
+  text-align: center;
+  color: #fff;
+  font-size: 36px;
+  margin: 30px 0 10px;
+  letter-spacing: 2px;
+  text-shadow: 0 2px 10px rgba(0,0,0,0.6);
+}
+
+/* ===== POEM CONTAINER ===== */
+#poems {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 25px;
+  padding: 40px;
+  max-width: 1200px;
+  margin: auto;
+}
+
+/* ===== POEM CARD ===== */
+.poem-card {
+  background: rgba(255, 255, 255, 0.92);
+  padding: 22px;
+  border-radius: 14px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.4);
+  transition: all 0.35s ease;
+  position: relative;
+  overflow: hidden;
+
+  /* premium border */
+  border-left: 4px solid #f4a261;
+}
+
+/* subtle paper texture */
+.poem-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: url("cf2ef00afd07d3b4267129f732ccf9ee.jpg") center/cover;
+  opacity: 0.06;
+  pointer-events: none;
+}
+
+/* hover effect */
+.poem-card:hover {
+  transform: translateY(-10px) scale(1.02);
+  box-shadow: 0 15px 35px rgba(0,0,0,0.6);
+  border-left: 4px solid #e76f51;
+}
+
+/* ===== TEXT ===== */
+.poem-card h3 {
+  margin: 0 0 10px;
+  color: #222;
+  font-size: 20px;
+}
+
+.poem-card p {
+  color: #333;
+  line-height: 1.7;
+  font-size: 15px;
+}
+
+/* author */
+.poem-card p:last-of-type {
+  margin-top: 12px;
+  font-style: italic;
+  color: #666;
+}
+
+/* ===== READ MORE BUTTON ===== */
+.poem-card a {
+  display: inline-block;
+  margin-top: 15px;
+  text-decoration: none;
+  background: linear-gradient(135deg, #111, #333);
+  color: #fff;
+  padding: 9px 16px;
+  border-radius: 8px;
+  font-size: 14px;
+  transition: all 0.3s ease;
+}
+
+/* hover button */
+.poem-card a:hover {
+  background: linear-gradient(135deg, #e63946, #ff6b6b);
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(230,57,70,0.5);
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 600px) {
+  h2 {
+    font-size: 26px;
+  }
+
+  #poems {
+    padding: 20px;
+    gap: 15px;
+  }
+}
+body {
+  margin: 0;
+  font-family: 'Noto Serif Bengali', serif;
+  background: url("cf2ef00afd07d3b4267129f732ccf9ee.jpg") no-repeat center center fixed;
+  background-size: cover;
+}
+
+/* ===== SECTION ===== */
+.latest {
+  max-width: 860px;
+  margin: 40px auto;
+  padding: 30px;
+  border-radius: 14px;
+  background: rgba(255,255,255,0.08);
+  backdrop-filter: blur(8px);
+  box-shadow: 0 8px 25px rgba(0,0,0,0.4);
+}
+
+/* ===== TITLE ===== */
+.latest h2 {
+  text-align: center;
+  font-size: 30px;
+  color: #fff;
+  margin-bottom: 25px;
+  letter-spacing: 1px;
+  position: relative;
+}
+
+.latest h2::after {
+  content: "";
+  width: 80px;
+  height: 3px;
+  background: #f4a261;
+  display: block;
+  margin: 10px auto 0;
+  border-radius: 2px;
+}
+
+/* ===== POSTS GRID ===== */
+#latestPosts {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 20px;
+}
+
+/* ===== CARD ===== */
+.latest-card {
+  background: rgba(255,255,255,0.95);
+  padding: 18px;
+  border-radius: 12px;
+  transition: 0.3s;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.3);
+  border-left: 4px solid #f4a261;
+}
+
+/* subtle texture */
+.latest-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: url("cf2ef00afd07d3b4267129f732ccf9ee.jpg") center/cover;
+  opacity: 0.05;
+  pointer-events: none;
+}
+
+/* hover */
+.latest-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 12px 30px rgba(0,0,0,0.5);
+  border-left: 4px solid #e63946;
+}
+
+/* ===== TEXT ===== */
+.latest-card h3 {
+  margin: 0 0 8px;
+  font-size: 18px;
+  color: #222;
+}
+
+.latest-card p {
+  font-size: 14px;
+  color: #444;
+  line-height: 1.6;
+}
+
+/* author */
+.latest-card .author {
+  margin-top: 8px;
+  font-style: italic;
+  color: #777;
+}
+
+/* ===== READ MORE (FINAL NEWS STYLE) ===== */
+.latest-card a {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: 12px;
+  font-size: 14px;
+  font-weight: 600;
+  color: #e63946;
+  text-decoration: none;
+  position: relative;
+  transition: all 0.3s ease;
+}
+
+/* arrow */
+.latest-card a::after {
+  content: "→";
+  transition: transform 0.3s ease;
+}
+
+/* underline animation */
+.latest-card a::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -3px;
+  width: 0%;
+  height: 2px;
+  background: #e63946;
+  transition: width 0.3s ease;
+}
+
+/* hover */
+.latest-card a:hover::before {
+  width: 100%;
+}
+
+.latest-card a:hover::after {
+  transform: translateX(5px);
+}
+
+/* ===== MOBILE ===== */
+@media (max-width: 600px) {
+  .latest {
+    padding: 20px;
+  }
+
+  .latest h2 {
+    font-size: 24px;
+  }
+}
