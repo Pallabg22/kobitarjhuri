@@ -21,6 +21,11 @@
 
 <body>
 <body class="festival-holi">
+
+<!-- 🔥 LOADER -->
+<div id="loader">
+  <div class="spinner"></div>
+</div>
 <header>
   <div class="top-links">
 <a href="admin.html">Admin</a>
@@ -265,13 +270,12 @@ document.getElementById("latestPosts").innerHTML=html;
   </div>
 
 </footer>
-
-
-<!-- NOTICE MODAL (FINAL PAPER VIEW) -->
+<!-- NOTICE MODAL -->
 <div id="noticeModal" class="notice-modal">
   <div class="notice-paper">
 
     <span class="close-btn" onclick="closeNotice()">✖</span>
+
     <img src="Usnokolom second edition Book Cover.png" class="notice-slide">
     <img src="kobita_o_golpo_ashor_2 (1).png" class="notice-slide">
 
@@ -284,32 +288,89 @@ document.getElementById("latestPosts").innerHTML=html;
 </div>
 
 <script>
-/* NOTICE SLIDER */
+/* ===== NOTICE SLIDER (AUTO + MANUAL) ===== */
+
 let currentNotice = 0;
 const slides = document.getElementsByClassName("notice-slide");
+let autoSlideInterval;
 
+/* OPEN */
 function openNotice() {
-  document.getElementById("noticeModal").style.display = "flex";
-  showNotice(currentNotice);
+  const modal = document.getElementById("noticeModal");
+  if(modal){
+    modal.style.display = "flex";
+    showNotice(currentNotice);
+    startAutoSlide();
+  }
 }
+
+/* CLOSE */
 function closeNotice() {
-  document.getElementById("noticeModal").style.display = "none";
+  const modal = document.getElementById("noticeModal");
+  if(modal){
+    modal.style.display = "none";
+    stopAutoSlide();
+  }
 }
+
+/* SHOW */
 function showNotice(n) {
+  if(slides.length === 0) return;
+
   currentNotice = (n + slides.length) % slides.length;
-  for (let s of slides) s.style.display = "none";
+
+  for (let s of slides){
+    s.style.display = "none";
+  }
+
   slides[currentNotice].style.display = "block";
 }
-function nextNotice(){ showNotice(currentNotice+1); }
-function prevNotice(){ showNotice(currentNotice-1); }
 
+/* NEXT / PREV */
+function nextNotice(){
+  showNotice(currentNotice + 1);
+}
 
-</script>
-<script>
-if(localStorage.getItem("userLoggedIn") !== "true"){
-  document.getElementById("writeBtn").style.display="none";
+function prevNotice(){
+  showNotice(currentNotice - 1);
+}
+
+/* AUTO SLIDE START */
+function startAutoSlide(){
+  stopAutoSlide(); // prevent duplicate interval
+  autoSlideInterval = setInterval(function(){
+    nextNotice();
+  }, 3000); // 3 sec
+}
+
+/* STOP */
+function stopAutoSlide(){
+  if(autoSlideInterval){
+    clearInterval(autoSlideInterval);
+  }
 }
 </script>
 
+<script>
+/* ===== LOGIN CHECK ===== */
+if(localStorage.getItem("userLoggedIn") !== "true"){
+  const btn = document.getElementById("writeBtn");
+  if(btn){
+    btn.style.display = "none";
+  }
+}
+</script>
+
+<script>
+/* ===== LOADER ===== */
+window.addEventListener("load", function(){
+  setTimeout(function(){
+    const loader = document.getElementById("loader");
+    if(loader){
+      loader.style.display = "none";
+    }
+  },300);
+});
+</script>
 </body>
 </html>
