@@ -68,18 +68,73 @@
 
   </div>
 </section>
-<!-- 🔥 FLOATING NOTICE -->
-<section class="Notice floating-notice">
-  <h2>নোটিশ</h2>
-  <p><b>১।প্রকাশিত হতে চলেছে নতুন পত্রিকা</b></p>
-  <p><b>উষ্ণ কলম — দ্বিতীয় সংখ্যা</b></p>
-  <p><b>২।প্রকাশিত হয়েছে উষ্ণ কলম — দ্বিতীয় সংখ্যা </b></p>
-  <button class="notice-read-btn" onclick="openNotice()">👉 এটা পড়ুন</button>
+<!-- ===== UPCOMING EVENTS ===== -->
+<section class="upcoming-box">
+  <h2>Upcoming Events</h2>
+
+  <div class="event">
+    <span class="date">Coming</span>
+    <p>নতুন ইভেন্ট শীঘ্রই ঘোষণা করা হবে</p>
+  </div>
+
+  <div class="event">
+    <span class="date">10 Apr</span>
+    <p>ফ্লিম ফেস্টিভ্যাল</p>
+  </div>
 </section>
+<!-- 🔥 RIGHT FLOATING WRAPPER -->
+<div class="right-floating">
+
+  <!-- ===== NOTICE ===== -->
+<section class="notice-box">
+  <h2>নোটিশ</h2>
+
+  <p>১।প্রকাশিত হতে চলেছে নতুন পত্রিকা</p>
+  <p>উষ্ণ কলম — দ্বিতীয় সংখ্যা</p>
+  <p>২।প্রকাশিত হয়েছে উষ্ণ কলম — দ্বিতীয় সংখ্যা</p>
+
+  <button onclick="openNotice()">👉 এটা পড়ুন</button>
+</section>
+
+<!-- MODAL -->
+<div id="noticeModal" class="notice-modal">
+  <div class="notice-content">
+
+    <span class="close-btn" onclick="closeNotice()">✖</span>
+
+    <img src="Usnokolom second edition Book Cover.png" class="slide">
+    <img src="kobita_o_golpo_ashor_2 (1).png" class="slide">
+
+    <div class="controls">
+      <button onclick="prevSlide()">◀</button>
+      <button onclick="nextSlide()">▶</button>
+    </div>
+
+  </div>
+</div>
+
+</div>
+
+
+<!-- 🔥 NOTICE MODAL -->
+<div id="noticeModal" class="notice-modal">
+  <div class="notice-paper">
+
+    <span class="close-btn" onclick="closeNotice()">✖</span>
+
+    <img src="Usnokolom second edition Book Cover.png" class="notice-slide">
+    <img src="kobita_o_golpo_ashor_2 (1).png" class="notice-slide">
+
+    <div class="notice-controls">
+      <button onclick="prevNotice()">◀</button>
+      <button onclick="nextNotice()">▶</button>
+    </div>
+
+  </div>
+</div>
 
 <!-- spacer -->
 <div class="notice-spacer"></div>
-
 
 <section class="latest">
 
@@ -148,21 +203,8 @@ document.getElementById("latestPosts").innerHTML=html;
 </p>
 </section>
 
-<section class="Upcoming">
-  <h2>Upcoming Events</h2>
-
-  <div class="event">
-    <span class="event-date"></span>
-    <p></p>
-  </div>
-
-  <div class="event">
-    <span class="event-date">10 Apr</span>
-    <p>ফ্লিম ফেস্টিভ্যাল</p>
-  </div>
-
-</section>
-
+<!-- Spacer যাতে content চাপা না পড়ে -->
+<div class="upcoming-spacer"></div>
 
 <section class="Published">
 
@@ -282,81 +324,80 @@ document.getElementById("latestPosts").innerHTML=html;
 
     <span class="close-btn" onclick="closeNotice()">✖</span>
 
-    <img src="Usnokolom second edition Book Cover.png" class="notice-slide">
-    <img src="kobita_o_golpo_ashor_2 (1).png" class="notice-slide">
+    <!-- class ঠিক করো -->
+    <img src="Usnokolom second edition Book Cover.png" class="slide">
+    <img src="kobita_o_golpo_ashor_2 (1).png" class="slide">
 
     <div class="notice-controls">
-      <button onclick="prevNotice()">◀</button>
-      <button onclick="nextNotice()">▶</button>
+      <button onclick="prevSlide()">◀</button>
+      <button onclick="nextSlide()">▶</button>
     </div>
 
   </div>
 </div>
 
 <script>
-/* ===== NOTICE SLIDER (AUTO + MANUAL) ===== */
+let current = 0;
+let slides = [];
+let interval = null;
 
-let currentNotice = 0;
-const slides = document.getElementsByClassName("notice-slide");
-let autoSlideInterval;
+/* INIT */
+function initSlides(){
+  slides = document.getElementsByClassName("slide");
+}
 
 /* OPEN */
-function openNotice() {
-  const modal = document.getElementById("noticeModal");
-  if(modal){
-    modal.style.display = "flex";
-    showNotice(currentNotice);
-    startAutoSlide();
-  }
+function openNotice(){
+  document.getElementById("noticeModal").style.display = "flex";
+  initSlides();
+  showSlide(current);
+  startAuto(); // 🔥 auto start
 }
 
 /* CLOSE */
-function closeNotice() {
-  const modal = document.getElementById("noticeModal");
-  if(modal){
-    modal.style.display = "none";
-    stopAutoSlide();
-  }
+function closeNotice(){
+  document.getElementById("noticeModal").style.display = "none";
+  stopAuto(); // stop auto
 }
 
 /* SHOW */
-function showNotice(n) {
+function showSlide(n){
   if(slides.length === 0) return;
 
-  currentNotice = (n + slides.length) % slides.length;
+  current = (n + slides.length) % slides.length;
 
-  for (let s of slides){
-    s.style.display = "none";
+  for(let i=0;i<slides.length;i++){
+    slides[i].style.display="none";
   }
 
-  slides[currentNotice].style.display = "block";
+  slides[current].style.display="block";
 }
 
-/* NEXT / PREV */
-function nextNotice(){
-  showNotice(currentNotice + 1);
+/* NEXT/PREV */
+function nextSlide(){ showSlide(current+1); }
+function prevSlide(){ showSlide(current-1); }
+
+/* AUTO */
+function startAuto(){
+  stopAuto();
+  interval = setInterval(nextSlide, 3000);
 }
 
-function prevNotice(){
-  showNotice(currentNotice - 1);
+function stopAuto(){
+  if(interval){
+    clearInterval(interval);
+    interval = null;
+  }
 }
 
-/* AUTO SLIDE START */
-function startAutoSlide(){
-  stopAutoSlide(); // prevent duplicate interval
-  autoSlideInterval = setInterval(function(){
-    nextNotice();
-  }, 3000); // 3 sec
-}
-
-/* STOP */
-function stopAutoSlide(){
-  if(autoSlideInterval){
-    clearInterval(autoSlideInterval);
+/* CLICK OUTSIDE CLOSE */
+window.onclick = function(e){
+  const modal = document.getElementById("noticeModal");
+  if(e.target === modal){
+    closeNotice();
   }
 }
 </script>
-
 <script>
 /* ===== LOGIN CHECK ===== */
 if(localStorage.getItem("userLoggedIn") !== "true"){
