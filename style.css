@@ -3467,18 +3467,25 @@ nav{
   transform:translateY(0);
 }
 
-.shop-btn{
+.shop-card{
+  background:linear-gradient(135deg,#eef2ff,#f9fbff);
+  padding:25px;
+  border-radius:15px;
+  text-align:center;
+  box-shadow:0 6px 20px rgba(0,0,0,0.1);
+}
+
+.shop-card a{
   display:inline-block;
-  padding:12px 22px;
-  background:#96a7d1;
-  color:#fff;
+  margin-top:10px;
+  padding:10px 20px;
+  background:#2b4587;
+  color:#e6dddd;
   text-decoration:none;
   border-radius:8px;
-  font-weight:bold;
   transition:0.3s;
 }
 
-.shop-btn:hover{
-  background:#3557ad;
-  transform:scale(1.05);
+.shop-card a:hover{
+  background:#1d2f5e;
 }
