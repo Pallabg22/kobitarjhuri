@@ -3466,3 +3466,19 @@ nav{
   opacity:1;
   transform:translateY(0);
 }
+
+.shop-btn{
+  display:inline-block;
+  padding:12px 22px;
+  background:#96a7d1;
+  color:#fff;
+  text-decoration:none;
+  border-radius:8px;
+  font-weight:bold;
+  transition:0.3s;
+}
+
+.shop-btn:hover{
+  background:#3557ad;
+  transform:scale(1.05);
+}
