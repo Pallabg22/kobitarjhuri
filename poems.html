@@ -1,5 +1,14 @@
 <link rel="stylesheet" href="style.css">
+
 <h2>সব কবিতা</h2>
+
+<!-- Search -->
+<input type="text" id="searchInput" placeholder="কবিতা খুঁজুন..." />
+
+<!-- Category (Auto load হবে) -->
+<select id="categoryFilter">
+  <option value="all">All</option>
+</select>
 
 <div id="poems"></div>
 
@@ -7,38 +16,76 @@
 
 var API="https://script.google.com/macros/s/AKfycby_DiBVclgMtxCUu_QdvSy6ySRPh-Zgnoryp6_mUSM8lMU8OpkrlqbCTHaw3usCOzSJZw/exec";
 
+var allPoems = [];
+
+// Fetch data
 fetch(API+"?action=getPoems")
-
 .then(r=>r.json())
-
 .then(data=>{
+  allPoems = data;
 
-var html="";
-
-data.forEach(function(p){
-
-var text=p.poem.substring(0,200).replace(/\n/g,"<br>");
-
-html+=`
-
-<div class="poem-card">
-
-<h3>${p.title}</h3>
-
-<p>${text}...</p>
-
-<p>— ${p.author}</p>
-
-<a href="poem.html?id=${p.id}">Read More</a>
-
-</div>
-
-`;
-
+  loadCategories(data); // auto category
+  showPoems(); // show all
 });
 
-document.getElementById("poems").innerHTML=html;
+// 🔥 Auto Category Load
+function loadCategories(data){
+  var cats = new Set();
 
-});
+  data.forEach(p=>{
+    if(p.category){
+      cats.add(p.category.trim());
+    }
+  });
+
+  var select = document.getElementById("categoryFilter");
+
+  cats.forEach(cat=>{
+    var option = document.createElement("option");
+    option.value = cat;
+    option.textContent = cat;
+    select.appendChild(option);
+  });
+}
+
+// 🔍 + 🎯 Filter Function
+function showPoems(){
+  var category = document.getElementById("categoryFilter").value;
+  var search = document.getElementById("searchInput").value.toLowerCase();
+
+  var html = "";
+
+  allPoems.forEach(function(p){
+
+    var matchCategory = (category === "all" || p.category === category);
+    var matchSearch = (
+      p.title.toLowerCase().includes(search) ||
+      p.author.toLowerCase().includes(search) ||
+      p.poem.toLowerCase().includes(search)
+    );
+
+    if(matchCategory && matchSearch && p.status === "approved"){
+
+      var text = p.poem.substring(0,200).replace(/\n/g,"<br>");
+
+      html += `
+      <div class="poem-card">
+        <h3>${p.title}</h3>
+        <p>${text}...</p>
+        <p>— ${p.author}</p>
+        <p class="cat">${p.category}</p>
+        <a href="poem.html?id=${p.id}">Read More</a>
+      </div>
+      `;
+    }
+
+  });
+
+  document.getElementById("poems").innerHTML = html || "<p>কোনো কবিতা পাওয়া যায়নি 😔</p>";
+}
+
+// Events
+document.getElementById("categoryFilter").addEventListener("change", showPoems);
+document.getElementById("searchInput").addEventListener("input", showPoems);
 
 </script>

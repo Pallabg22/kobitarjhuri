@@ -29,32 +29,42 @@
 </header>
 
 <nav>
-  <a href="index.html">হোম</a>
-  <!-- Dropdown Start -->
-  <div class="dropdown">
-    <button class="dropbtn">🎯এক্টিভিটি ▼</button>
-    <div class="dropdown-content">
-      <a href="certificate.html">সার্টিফিকেট ডাউনলোড করুন</a>
-      <a href="onlineeventsandcompitition.html">অনলাইন প্রতিযোগিতা</a>
-    </div>
-  </div>
-  <!-- Dropdown End -->
-  <a href="https://kobitar-jhuri-shoping-site.store.shoopy.in/">Shoping Corner</a>
 
-  <!-- Dropdown Start -->
-  <div class="dropdown">
-    <button class="dropbtn">সাহিত্য ▼</button>
-    <div class="dropdown-content">
-      <a href="poems.html">কবিতা</a>
-      <a href="stories.html">গল্প</a>
-    </div>
-  </div>
-  <!-- Dropdown End -->
+  <!-- Logo / Title -->
+  <div class="logo">কবিতার ঝুড়ি সাহিত্য পত্রিকা</div>
 
-  <a href="about.html">আমাদের কথা</a>
-  <a href="contact.html">যোগাযোগ</a>
+  <!-- Hamburger -->
+  <div class="menu-toggle" onclick="toggleMenu()">
+    ☰
+  </div>
+
+  <!-- Menu -->
+  <div class="nav-links" id="navLinks">
+    <a href="index.html">হোম</a>
+
+    <div class="dropdown">
+      <button class="dropbtn">এক্টিভিটি ▼</button>
+      <div class="dropdown-content">
+        <a href="certificate.html">সার্টিফিকেট</a>
+        <a href="onlineeventsandcompitition.html">প্রতিযোগিতা</a>
+      </div>
+    </div>
+
+    <a href="https://kobitar-jhuri-shoping-site.store.shoopy.in/">Shoping Corner</a>
+
+    <div class="dropdown">
+      <button class="dropbtn">সাহিত্য ▼</button>
+      <div class="dropdown-content">
+        <a href="poems.html">কবিতা</a>
+        <a href="stories.html">গল্প</a>
+      </div>
+    </div>
+
+    <a href="about.html">আমাদের কথা</a>
+    <a href="contact.html">যোগাযোগ</a>
+  </div>
+
 </nav>
-
 <section class="Announcement">
 <div class="container">
 <h2>Important Announcement</h2>
@@ -69,8 +79,6 @@
     <h1>স্বাগতম কবিতার ঝুড়ি সাহিত্য পত্রিকা</h1>
     <p>কবিতা, গল্প ও সাহিত্যের এক সুন্দর ঠিকানা</p>
 
-    
-
   </div>
 </section>
 
@@ -83,7 +91,7 @@
   </div>
 
   <div class="event">
-    <span class="date">10 Apr</span>
+    <span class="date">13 May</span>
     <p>ফ্লিম ফেস্টিভ্যাল</p>
   </div>
 </section>
@@ -306,6 +314,18 @@ const observer=new IntersectionObserver(entries=>{
 document.querySelectorAll(".poetry-card").forEach(el=>{
   el.classList.add("fade-in");
   observer.observe(el);
+});
+</script>
+<script>
+function toggleMenu() {
+  document.getElementById("navLinks").classList.toggle("show");
+}
+
+// Dropdown mobile click
+document.querySelectorAll(".dropbtn").forEach(btn => {
+  btn.addEventListener("click", function(){
+    this.parentElement.classList.toggle("active");
+  });
 });
 </script>
 </body>
