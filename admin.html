@@ -2,8 +2,10 @@
 <h2>Admin Panel</h2>
 
 <div class="admin-toolbar">
-  <button onclick="loadPending()">Pending</button>
-  <button onclick="loadApproved()">Approved</button>
+  <button onclick="loadPending()">Pending Poems</button>
+  <button onclick="loadApproved()">Approved Poems</button>
+  <button onclick="loadPendingStories()">Pending Stories</button>
+  <button onclick="loadApprovedStories()">Approved Stories</button>
 </div>
 
 <div id="poems">Loading...</div>
@@ -18,7 +20,6 @@ if(!user){
   window.location="login.html";
 }
 
-/* ADMIN CHECK */
 if(user !== "pallabguchhait03@gmail.com"){
   alert("Admin only");
   window.location="index.html";
@@ -27,73 +28,57 @@ if(user !== "pallabguchhait03@gmail.com"){
 /* API */
 var API="https://script.google.com/macros/s/AKfycby_DiBVclgMtxCUu_QdvSy6ySRPh-Zgnoryp6_mUSM8lMU8OpkrlqbCTHaw3usCOzSJZw/exec";
 
-
-/* LOAD PENDING */
+/* ================= POEMS ================= */
 
 function loadPending(){
-
 fetch(API+"?action=getPending")
-
 .then(r=>r.json())
-
-.then(data=>renderCards(data,true))
-
-.catch(err=>{
-document.getElementById("poems").innerHTML="Error loading data";
-console.error(err);
-});
-
+.then(data=>renderPoems(data,true));
 }
-
-
-/* LOAD APPROVED */
 
 function loadApproved(){
-
 fetch(API+"?action=getPoems")
-
 .then(r=>r.json())
-
-.then(data=>renderCards(data,false))
-
-.catch(err=>{
-document.getElementById("poems").innerHTML="Error loading data";
-console.error(err);
-});
-
+.then(data=>renderPoems(data,false));
 }
 
+/* ================= STORIES ================= */
 
-/* CARD RENDER */
+function loadPendingStories(){
+fetch(API+"?action=getPendingStories")
+.then(r=>r.json())
+.then(data=>renderStories(data,true));
+}
 
-function renderCards(data,isPending){
+function loadApprovedStories(){
+fetch(API+"?action=getStories")
+.then(r=>r.json())
+.then(data=>renderStories(data,false));
+}
+
+/* ================= RENDER POEMS ================= */
+
+function renderPoems(data,isPending){
 
 var html="";
 
 if(!data || data.length===0){
-html="<p class='no-data'>No data found</p>";
+html="<p class='no-data'>No poems found</p>";
 }
 
 data.forEach(function(p){
 
-// poetry line break fix
-var poemText = p.poem.replace(/\n/g,"<br>");
+var poemText=(p.poem||"").replace(/\n/g,"<br>");
 
 html+=`
 <div class="admin-card">
-
 <h3>${p.title}</h3>
-
-<p class="poem-text">${poemText}</p>
-
-<p class="author"><b>Author:</b> ${p.author}</p>
+<p>${poemText}</p>
+<p><b>Author:</b> ${p.author}</p>
 
 <div class="actions">
-
-${isPending ? `<button class="approve" onclick="approve('${p.id}')">Approve</button>` : ""}
-
-<button class="delete" onclick="removePoem('${p.id}')">Delete</button>
-
+${isPending ? `<button onclick="approvePoem('${p.id}')">Approve</button>` : ""}
+<button onclick="deletePoem('${p.id}')">Delete</button>
 </div>
 
 </div>
@@ -102,46 +87,66 @@ ${isPending ? `<button class="approve" onclick="approve('${p.id}')">Approve</but
 });
 
 document.getElementById("poems").innerHTML=html;
-
 }
 
+/* ================= RENDER STORIES ================= */
 
-/* APPROVE */
+function renderStories(data,isPending){
 
-function approve(id){
+var html="";
 
+if(!data || data.length===0){
+html="<p class='no-data'>No stories found</p>";
+}
+
+data.forEach(function(s){
+
+var text=(s.story||"").replace(/\n/g,"<br>");
+
+html+=`
+<div class="admin-card">
+<h3>${s.title}</h3>
+<p>${text}</p>
+<p><b>Author:</b> ${s.author}</p>
+
+<div class="actions">
+${isPending ? `<button onclick="approveStory('${s.id}')">Approve</button>` : ""}
+<button onclick="deleteStory('${s.id}')">Delete</button>
+</div>
+
+</div>
+`;
+
+});
+
+document.getElementById("poems").innerHTML=html;
+}
+
+/* ================= ACTIONS ================= */
+
+function approvePoem(id){
 fetch(API+"?action=approve&id="+id)
-
-.then(r=>r.text())
-
-.then(()=>{
-alert("Poem Approved");
-loadPending();
-});
-
+.then(()=>{ alert("Poem Approved"); loadPending(); });
 }
 
-
-/* DELETE */
-
-function removePoem(id){
-
+function deletePoem(id){
 if(!confirm("Delete this poem?")) return;
-
 fetch(API+"?action=delete&id="+id)
-
-.then(r=>r.text())
-
-.then(()=>{
-alert("Poem Deleted");
-loadPending();
-});
-
+.then(()=>{ alert("Deleted"); loadPending(); });
 }
 
+function approveStory(id){
+fetch(API+"?action=approveStory&id="+id)
+.then(()=>{ alert("Story Approved"); loadPendingStories(); });
+}
 
-/* INITIAL LOAD */
+function deleteStory(id){
+if(!confirm("Delete this story?")) return;
+fetch(API+"?action=deleteStory&id="+id)
+.then(()=>{ alert("Deleted"); loadPendingStories(); });
+}
 
+/* INITIAL */
 loadPending();
 
 </script>

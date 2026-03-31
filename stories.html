@@ -37,39 +37,37 @@ box-shadow:0 5px 15px rgba(0,0,0,0.1);
 var API="https://script.google.com/macros/s/AKfycby_DiBVclgMtxCUu_QdvSy6ySRPh-Zgnoryp6_mUSM8lMU8OpkrlqbCTHaw3usCOzSJZw/exec";
 
 fetch(API+"?action=getStories")
-
 .then(r=>r.json())
-
 .then(data=>{
 
 var html="";
 
+if(data.length===0){
+html="<p>কোনো গল্প পাওয়া যায়নি 😔</p>";
+}
+
 data.forEach(function(s){
 
-var storyText=s.story.replace(/\n/g,"<br>");
+var storyText=(s.story || "").replace(/\n/g,"<br>");
 
 html+=`
-
 <div class="story-card">
-
 <h3>${s.title}</h3>
-
 <p>${storyText}</p>
-
 <p>— ${s.author}</p>
-
 </div>
-
 `;
 
 });
 
 document.getElementById("stories").innerHTML=html;
 
+})
+.catch(()=>{
+document.getElementById("stories").innerHTML="Error loading stories ❌";
 });
 
 </script>
 
 </body>
-
 </html>
