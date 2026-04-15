@@ -360,5 +360,12 @@ function closePopup(){
   document.getElementById("popupModal").style.display="none";
 }
 </script>
+<script>
+document.getElementById("popupModal").addEventListener("click", function(e){
+  if(e.target === this){
+    closePopup();
+  }
+});
+</script>
 </body>
 </html>
