@@ -8,7 +8,6 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+Bengali:wght@400;700&display=swap" rel="stylesheet">
 </head>
-
 <body class="festival-holi">
 
 <!-- 🔥 LOADER -->
@@ -338,6 +337,28 @@ document.querySelectorAll(".dropbtn").forEach(btn => {
     this.parentElement.classList.toggle("active");
   });
 });
+</script>
+</div>
+<!-- 🔥 POPUP POSTER -->
+<div id="popupModal" class="popup-modal">
+  <div class="popup-content">
+    <span class="close-popup" onclick="closePopup()">✖</span>
+
+    <img src="Invited Guest.png" class="popup-img">
+    <img src="ChatGPT Image Apr 14, 2026, 10_33_37 PM.png" class="popup-img">
+
+  </div>
+</div>
+<script>
+window.addEventListener("load", function(){
+  setTimeout(function(){
+    document.getElementById("popupModal").style.display="flex";
+  }, 800); // 0.8 sec delay
+});
+
+function closePopup(){
+  document.getElementById("popupModal").style.display="none";
+}
 </script>
 </body>
 </html>
